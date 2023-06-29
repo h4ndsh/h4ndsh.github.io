@@ -12,8 +12,8 @@ Hi there, I'm Diogo Costa AKA `@h4ndsh`- an ethical hacker with a passion for se
 
 # Education
 
-- ISEC - Instituto Superior de Engenharia de Coimbra [ 2018 - 2022 ]
-- Escola Secundária Avelar Brotero [ 2015 - 2018 ]
+- **Computer Science and engineering** - [Instituto Superior de Engenharia de Coimbra](https://www.isec.pt) [2018 - 2022]
+- **Computer Systems Programming** - [Escola Secundária Avelar Brotero](http://esab.pt/) [2015 - 2018]
 
 # Skills
 
