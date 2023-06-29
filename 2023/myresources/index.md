@@ -1,14 +1,17 @@
 # My resources to learn Ethical Hacking
 
 
+Since I started my journey in the world of cybersecurity, I've been learning and improving my skills in this area. I've been asked a lot of times about the resources I used to learn ethical hacking, so I decided to create this post to share with you the resources I used to learn ethical hacking.
+
 # Summary
-- [Introduction](#introduction)
 - [How to start?](#how-to-start)
 - [Where to learn?](#where-to-learn)
+- [CTFs](#ctfs)
+- [Blogs](#blogs)
+- [Github repositories](#github-repositories)
+- [Tools](#tools)
+- [Being up to date](#being-up-to-date)
 
-# Introduction
-
-Since I started my journey in the world of cybersecurity, I've been learning and improving my skills in this area. I've been asked a lot of times about the resources I used to learn ethical hacking, so I decided to create this post to share with you the resources I used to learn ethical hacking.
 
 # How to start?
 
