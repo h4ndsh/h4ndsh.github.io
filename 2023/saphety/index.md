@@ -30,11 +30,11 @@ The phishing website was hosted on Cloudflare and utilized a valid SSL certifica
 
 ## Decoding the encoded strings
 
-Upon examining the phishing website's code, I discovered that it was encoded using the `escape` function, an old JavaScript method used to encode strings. The website also employed various JavaScript obfuscation techniques, such as utilizing the `eval` function and the `String.fromCharCode` function to decode the encoded strings.
+Upon examining the phishing website's code, I discovered that it was encoded using the `escape` function, an old JavaScript method used to encode strings. The website also employed various JavaScript obfuscation techniques, such as utilizing random variable names and splitting the code into multiple lines. The following screenshot shows the encoded strings.
 
 ![Script](html-script.png "Html Script")
 
-To decode the encoded strings, I used the `unescape` function and printed the decoded strings to the console. This allowed me to understand the actions performed by the phishing website.
+To decode the encoded strings, I used the `unescape` function and printed the decoded strings to the console. This allowed me to understand the actions performed by the website.
 
 ## Form analysis
 
@@ -66,12 +66,13 @@ One file, in particular, caught my attention: `ahmed.txt`. I decided to open it 
 ![POST Request Test](credentials.png "POST Request Test")
 
 Clear and simple.
-
-![No way](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmZ3ZjM4Zmc4cHF0eGNoZm1nY2gzNzdlc3JyaHlzMTJrd3kwNmV4byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9lusxBBUsTz8Fk029b/giphy.gif "No way")
+<center>
+  <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmZ3ZjM4Zmc4cHF0eGNoZm1nY2gzNzdlc3JyaHlzMTJrd3kwNmV4byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9lusxBBUsTz8Fk029b/giphy.gif" width="60%" height="60%" class="center"/>
+</center>
 
 The inevitable had occurred. I had access to the victims' credentials, numerous credentials in fact. I promptly reported the phishing website to Cloudflare and the victim company.
 
-At the time of writing this article, the phishing website had been reported as a phishing site.
+At the time of writing this article, the phishing website had been reported as such.
 ![Reported](reported.png "Reported Message")
 
 That concludes this article. I hope you found it informative. 

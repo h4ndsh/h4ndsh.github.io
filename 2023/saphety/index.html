@@ -32,7 +32,7 @@
                             "url": "https:\/\/h4ndsh.github.io\/2023\/saphety\/featured-image.png",
                             "width":  2008 ,
                             "height":  985 
-                        }],"genre": "posts","keywords": "Ethical Hacking","wordcount":  742 ,
+                        }],"genre": "posts","keywords": "Ethical Hacking","wordcount":  738 ,
         "url": "https:\/\/h4ndsh.github.io\/2023\/saphety\/","datePublished": "2023-06-29T00:00:00+00:00","dateModified": "2023-06-29T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -103,7 +103,7 @@
     </div><main class="main">
                 <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Saphety Phishing Campaign</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://h4ndsh.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>h4ndsh</a></span>&nbsp;<span class="post-category">included in <a href="/categories/phishing/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Phishing</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="29-06-2023">29-06-2023</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;742 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="29-06-2023">29-06-2023</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;738 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -144,7 +144,7 @@
 <h1 id="website-analysis">Website analysis</h1>
 <p>The phishing website was hosted on Cloudflare and utilized a valid SSL certificate. It was hosted on the domain <code>cf-ipfs.com</code>, which was registered on 2018-12-05.</p>
 <h2 id="decoding-the-encoded-strings">Decoding the encoded strings</h2>
-<p>Upon examining the phishing website&rsquo;s code, I discovered that it was encoded using the <code>escape</code> function, an old JavaScript method used to encode strings. The website also employed various JavaScript obfuscation techniques, such as utilizing the <code>eval</code> function and the <code>String.fromCharCode</code> function to decode the encoded strings.</p>
+<p>Upon examining the phishing website&rsquo;s code, I discovered that it was encoded using the <code>escape</code> function, an old JavaScript method used to encode strings. The website also employed various JavaScript obfuscation techniques, such as utilizing random variable names and splitting the code into multiple lines. The following screenshot shows the encoded strings.</p>
 <p><figure><a class="lightgallery" href="/2023/saphety/html-script.png" title="Script" data-thumbnail="/2023/saphety/html-script.png" data-sub-html="<h2>Html Script</h2><p>Script</p>">
         <img
             class="lazyload"
@@ -155,7 +155,7 @@
             alt="/2023/saphety/html-script.png" width="1136" height="379" />
     </a><figcaption class="image-caption">Html Script</figcaption>
     </figure></p>
-<p>To decode the encoded strings, I used the <code>unescape</code> function and printed the decoded strings to the console. This allowed me to understand the actions performed by the phishing website.</p>
+<p>To decode the encoded strings, I used the <code>unescape</code> function and printed the decoded strings to the console. This allowed me to understand the actions performed by the website.</p>
 <h2 id="form-analysis">Form analysis</h2>
 <p>The phishing website employed a form to collect data and send it to the hacker&rsquo;s domain. The form used by the hackers was similar to those I have encountered in previous phishing websites. The form was designed to mimic the victim&rsquo;s domain and generate fake webmail login pages. In the background, the phishing website loaded the main phishing page from the victim&rsquo;s domain, with the victim&rsquo;s domain name being used to generate the fake webmail login pages.</p>
 <p><figure><a class="lightgallery" href="/2023/saphety/form.png" title="Form" data-thumbnail="/2023/saphety/form.png" data-sub-html="<h2>Form</h2><p>Form</p>">
@@ -216,18 +216,11 @@
     </a><figcaption class="image-caption">POST Request Test</figcaption>
     </figure></p>
 <p>Clear and simple.</p>
-<p><figure><a class="lightgallery" href="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmZ3ZjM4Zmc4cHF0eGNoZm1nY2gzNzdlc3JyaHlzMTJrd3kwNmV4byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9lusxBBUsTz8Fk029b/giphy.gif" title="No way" data-thumbnail="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmZ3ZjM4Zmc4cHF0eGNoZm1nY2gzNzdlc3JyaHlzMTJrd3kwNmV4byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9lusxBBUsTz8Fk029b/giphy.gif" data-sub-html="<h2>No way</h2><p>No way</p>">
-        <img
-            class="lazyload"
-            src="/svg/loading.min.svg"
-            data-src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmZ3ZjM4Zmc4cHF0eGNoZm1nY2gzNzdlc3JyaHlzMTJrd3kwNmV4byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9lusxBBUsTz8Fk029b/giphy.gif"
-            data-srcset="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmZ3ZjM4Zmc4cHF0eGNoZm1nY2gzNzdlc3JyaHlzMTJrd3kwNmV4byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9lusxBBUsTz8Fk029b/giphy.gif, https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmZ3ZjM4Zmc4cHF0eGNoZm1nY2gzNzdlc3JyaHlzMTJrd3kwNmV4byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9lusxBBUsTz8Fk029b/giphy.gif 1.5x, https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmZ3ZjM4Zmc4cHF0eGNoZm1nY2gzNzdlc3JyaHlzMTJrd3kwNmV4byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9lusxBBUsTz8Fk029b/giphy.gif 2x"
-            data-sizes="auto"
-            alt="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmZ3ZjM4Zmc4cHF0eGNoZm1nY2gzNzdlc3JyaHlzMTJrd3kwNmV4byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9lusxBBUsTz8Fk029b/giphy.gif" />
-    </a><figcaption class="image-caption">No way</figcaption>
-    </figure></p>
+<center>
+  <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmZ3ZjM4Zmc4cHF0eGNoZm1nY2gzNzdlc3JyaHlzMTJrd3kwNmV4byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9lusxBBUsTz8Fk029b/giphy.gif" width="60%" height="60%" class="center"/>
+</center>
 <p>The inevitable had occurred. I had access to the victims' credentials, numerous credentials in fact. I promptly reported the phishing website to Cloudflare and the victim company.</p>
-<p>At the time of writing this article, the phishing website had been reported as a phishing site.
+<p>At the time of writing this article, the phishing website had been reported as such.
 <figure><a class="lightgallery" href="/2023/saphety/reported.png" title="Reported" data-thumbnail="/2023/saphety/reported.png" data-sub-html="<h2>Reported Message</h2><p>Reported</p>">
         <img
             class="lazyload"
