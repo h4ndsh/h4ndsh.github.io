@@ -62,6 +62,8 @@ This is a list of CTF platforms that I recommend you to try:
 - [Root-Me](https://www.root-me.org/?lang=en)
 - [VulnHub](https://www.vulnhub.com/)
 
+This is a great article about CTFs: [CTF Field Guide](https://trailofbits.github.io/ctf/). You also can read other articles about CTFs like [this](https://jaimelightfoot.com/blog/so-you-want-to-ctf-a-beginners-guide/)
+
 ## Blogs
 My favorite learning method is by reading blog posts and testing the things. In most scenarios, I read a blog post, and then I try to reproduce the things that I learned. Here are some blogs that I recommend you read:
 
