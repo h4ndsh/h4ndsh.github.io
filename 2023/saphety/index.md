@@ -14,6 +14,7 @@ This article is about a phishing campaign that my company received. The campaign
   - [Server analysis](#server-analysis)
 
 # What is Saphety?
+
 Saphety is a Portuguese company that offers electronic invoicing services. It serves a wide range of clients, including some of the largest companies in Portugal, as well as clients in other countries such as Spain, France, and Brazil.
 
 # The phishing email
