@@ -32,7 +32,7 @@
                             "url": "https:\/\/h4ndsh.github.io\/2023\/phpinfo\/featured-image.png",
                             "width":  1431 ,
                             "height":  816 
-                        }],"genre": "posts","keywords": "php7, phpinfo","wordcount":  1573 ,
+                        }],"genre": "posts","keywords": "php7, phpinfo","wordcount":  1570 ,
         "url": "https:\/\/h4ndsh.github.io\/2023\/phpinfo\/","datePublished": "2023-10-12T00:00:00+00:00","dateModified": "2023-10-12T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -103,7 +103,7 @@
     </div><main class="main">
                 <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">PHP <= 7.3 Local File Inclusion RCE with LFI (PoC)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://h4ndsh.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>h4ndsh</a></span>&nbsp;<span class="post-category">included in <a href="/categories/poc/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>PoC</a>&nbsp;<a href="/categories/learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Learning</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="Oct 12, 2023">Oct 12, 2023</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1573 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="Oct 12, 2023">Oct 12, 2023</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1570 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -535,10 +535,11 @@ We can verify that an array is created in $_SERVER[&ldquo;argv&rdquo;].</p>
     </a><figcaption class="image-caption">Results</figcaption>
     </figure></p>
 <h1 id="mitigation">Mitigation</h1>
-<pre><code>1. Disable register_argc_argv (if possible).
-2. Check for and remove any directory exposure vulnerabilities.
-3. Update PHP to the latest version.
-</code></pre>
+<ol>
+<li>Disable register_argc_argv (if possible).</li>
+<li>Check for and remove any directory exposure vulnerabilities.</li>
+<li>Update PHP to the latest version.</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1

@@ -248,9 +248,9 @@ nuclei -u <target> -t argv.yaml -nc -silent
 
 # Mitigation
 
-    1. Disable register_argc_argv (if possible).
-    2. Check for and remove any directory exposure vulnerabilities.
-    3. Update PHP to the latest version.
+1. Disable register_argc_argv (if possible).
+2. Check for and remove any directory exposure vulnerabilities.
+3. Update PHP to the latest version.
 
 ```bash
 echo "register_argc_argv = Off" > /usr/local/etc/php/php.ini
