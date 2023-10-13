@@ -1,0 +1,34 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>All Posts - H4ndSH</title>
+        <link>https://h4ndsh.github.io/posts/</link>
+        <description>All Posts | H4ndSH</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>handsh@mail.com (h4ndsh)</managingEditor>
+            <webMaster>handsh@mail.com (h4ndsh)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 12 Oct 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://h4ndsh.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>PHP &lt;= 7.3 Local File Inclusion RCE with LFI (PoC)</title>
+    <link>https://h4ndsh.github.io/2023/phpinfo/</link>
+    <pubDate>Thu, 12 Oct 2023 00:00:00 &#43;0000</pubDate>
+    <author>h4ndsh</author>
+    <guid>https://h4ndsh.github.io/2023/phpinfo/</guid>
+    <description><![CDATA[This post aims to acquire knowledge about exploiting vulnerabilities in web systems. In this instance, I will delve into an LFI (Local File Inclusion) vulnerability and an RCE (Remote Code Execution) vulnerability. I will utilize the tools within the &lsquo;pearcmd.php&rsquo; file to craft manipulated files. Within a web environment, we can leverage the functionalities of &lsquo;pearcmd&rsquo; by controlling command-line parameters. This Proof of Concept (PoC) is highly specialized, yet it serves as an opportunity for me to explore new methods of penetration within web environments.]]></description>
+</item>
+<item>
+    <title>Saphety Phishing Campaign</title>
+    <link>https://h4ndsh.github.io/2023/saphety/</link>
+    <pubDate>Thu, 29 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>h4ndsh</author>
+    <guid>https://h4ndsh.github.io/2023/saphety/</guid>
+    <description><![CDATA[This article is about a phishing campaign that my company received. The campaign targeted Saphety, a Portuguese company providing electronic invoicing services. When my enterprise received the phishing email, I decided to investigate further. In this article, I will share my findings.
+Summary  Summary What is Saphety? The phishing email Website analysis  Decoding the encoded strings Form analysis POST method analysis Server analysis    What is Saphety?]]></description>
+</item>
+<item>
+    <title>My resources to learn Ethical Hacking</title>
+    <link>https://h4ndsh.github.io/2023/myresources/</link>
+    <pubDate>Wed, 07 Jun 2023 14:46:05 &#43;0100</pubDate>
+    <author>h4ndsh</author>
+    <guid>https://h4ndsh.github.io/2023/myresources/</guid>
+    <description><![CDATA[Since I started my journey in the world of cybersecurity, I&rsquo;ve been learning and improving my skills in this area. I&rsquo;ve been asked a lot of times about the resources I used to learn ethical hacking, so I decided to create this post to share with you the resources I used to learn ethical hacking.
+Summary  Summary How to start? Where to learn?  CTFs Blogs Github repositories   Tools Being up to date  How to start?]]></description>
+</item>
+</channel>
+</rss>

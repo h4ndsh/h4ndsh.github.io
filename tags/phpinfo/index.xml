@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>phpinfo - Tag - H4ndSH</title>
+        <link>https://h4ndsh.github.io/tags/phpinfo/</link>
+        <description>phpinfo - Tag - H4ndSH</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>handsh@mail.com (h4ndsh)</managingEditor>
+            <webMaster>handsh@mail.com (h4ndsh)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 12 Oct 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://h4ndsh.github.io/tags/phpinfo/" rel="self" type="application/rss+xml" /><item>
+    <title>PHP &lt;= 7.3 Local File Inclusion RCE with LFI (PoC)</title>
+    <link>https://h4ndsh.github.io/2023/phpinfo/</link>
+    <pubDate>Thu, 12 Oct 2023 00:00:00 &#43;0000</pubDate>
+    <author>h4ndsh</author>
+    <guid>https://h4ndsh.github.io/2023/phpinfo/</guid>
+    <description><![CDATA[This post aims to acquire knowledge about exploiting vulnerabilities in web systems. In this instance, I will delve into an LFI (Local File Inclusion) vulnerability and an RCE (Remote Code Execution) vulnerability. I will utilize the tools within the &lsquo;pearcmd.php&rsquo; file to craft manipulated files. Within a web environment, we can leverage the functionalities of &lsquo;pearcmd&rsquo; by controlling command-line parameters. This Proof of Concept (PoC) is highly specialized, yet it serves as an opportunity for me to explore new methods of penetration within web environments.]]></description>
+</item>
+</channel>
+</rss>

