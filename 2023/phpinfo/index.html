@@ -130,7 +130,7 @@
 </ul>
 </li>
 <li><a href="#reverse-shell" rel="">Reverse Shell</a></li>
-<li><a href="#realworld" rel="">Realworld</a></li>
+<li><a href="#real-world" rel="">Real World</a></li>
 <li><a href="#mitigation" rel="">Mitigation</a></li>
 <li><a href="#references" rel="">References</a></li>
 </ul>
@@ -237,7 +237,7 @@ We can verify that an array is created in $_SERVER[&ldquo;argv&rdquo;].</p>
             alt="/2023/phpinfo/phpinfo_argv.png" width="1459" height="230" />
     </a><figcaption class="image-caption">PHP Info</figcaption>
     </figure></p>
-<p>Following the post from <a href="https://twitter.com/phithon_xg" target="_blank" rel="noopener noreffer ">@phithon_xg</a> it is possible, from the phpinfo file, to invoke an action to create pearcmd files. This &ldquo;pearcmd&rdquo; is a PHP script that is used to interact with PEAR, a repository of PHP extensions and applications. It is used to install, uninstall, update, and manage PEAR packages. For this PoC, we will use the config-create function.</p>
+<p>Following the post from <a href="https://twitter.com/phithon_xg" target="_blank" rel="noopener noreffer ">@phithon_xg</a> it is possible, from the index.php file, to invoke an action from pearcmd and cerate files. This &ldquo;pearcmd&rdquo; is a PHP script that is used to interact with PEAR, a repository of PHP extensions and applications. It is used to install, uninstall, update, and manage PEAR packages. For this PoC, we will use the config-create function.</p>
 <p><figure><a class="lightgallery" href="/2023/phpinfo/pearcmd_config-create.png" title="pearcmd" data-thumbnail="/2023/phpinfo/pearcmd_config-create.png" data-sub-html="<h2>pearcmd config-cerate</h2><p>pearcmd</p>">
         <img
             class="lazyload"
@@ -358,7 +358,7 @@ We can verify that an array is created in $_SERVER[&ldquo;argv&rdquo;].</p>
         alt="/2023/phpinfo/id_cmd.png"
         title="id" width="1566" height="102" /></p>
 <h1 id="reverse-shell">Reverse Shell</h1>
-<p>In a scenario where a server allows the injection of Unix commands, such as through vulnerabilities like Local File Inclusion (LFI) or Remote Code Execution (RCE), it becomes possible to send a specific command to establish a reverse shell. A reverse shell is a connection initiated from the compromised server to the attacker&rsquo;s machine, providing the attacker with control over the server. To achieve this, the author plans to modify a previously used Python3 script to inject a command that opens a reverse shell on their own computer. For ease of use, the reverse shell command is encoded in base64, with the IP address &ldquo;192.168.1.110&rdquo; and port &ldquo;2030&rdquo; specified as the connection destination.</p>
+<p>In a scenario where a server allows the injection of Unix commands, such as through vulnerabilities like Local File Inclusion (LFI) or Remote Code Execution (RCE), it becomes possible to send a specific command to establish a reverse shell. A reverse shell is a connection initiated from the compromised server to the attacker&rsquo;s machine, providing the attacker with control over the server. To achieve this, I modify a previously used Python3 script to inject a command that opens a reverse shell on their own computer. For ease of use, the reverse shell command is encoded in base64, with the IP address &ldquo;192.168.1.110&rdquo; and port &ldquo;2030&rdquo; specified as the connection destination.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -456,7 +456,7 @@ We can verify that an array is created in $_SERVER[&ldquo;argv&rdquo;].</p>
             alt="/2023/phpinfo/netcat_connection.png" width="557" height="203" />
     </a><figcaption class="image-caption">Reverse Shell</figcaption>
     </figure></p>
-<h1 id="realworld">Realworld</h1>
+<h1 id="real-world">Real World</h1>
 <p>This detection does not necessarily imply that the web service is vulnerable. As mentioned earlier, the presence of a Local File Inclusion (LFI) vulnerability is required for the successful execution of the process outlined above, and each case may vary. However, to identify systems running PHP versions &lt;= 7.3, we can utilize <a href="https://github.com/projectdiscovery/nuclei" target="_blank" rel="noopener noreffer ">nuclei</a>. This tool is capable of scanning for various vulnerabilities, including Remote Code Execution (RCE), SQL injection, and cross-site scripting (XSS), providing us with insights into potential security risks.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
