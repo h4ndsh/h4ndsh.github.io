@@ -1,4 +1,4 @@
-# PHP <= 7.3 Local File Inclusion RCE with LFI (PoC)
+# PHP <= 7.3 Local File Inclusion with RCE (PoC)
 
 
 This post aims to acquire knowledge about exploiting vulnerabilities in web systems. In this instance, I will delve into an LFI (Local File Inclusion) vulnerability and an RCE (Remote Code Execution) vulnerability. I will utilize the tools within the 'pearcmd.php' file to craft manipulated files. Within a web environment, we can leverage the functionalities of 'pearcmd' by controlling command-line parameters. This Proof of Concept (PoC) is highly specialized, yet it serves as an opportunity for me to explore new methods of penetration within web environments.
