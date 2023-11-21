@@ -12,7 +12,16 @@
     <pubDate>Thu, 12 Oct 2023 00:00:00 &#43;0000</pubDate>
     <author>h4ndsh</author>
     <guid>https://h4ndsh.github.io/2023/phpinfo/</guid>
-    <description><![CDATA[This post aims to acquire knowledge about exploiting vulnerabilities in web systems. In this instance, I will delve into an LFI (Local File Inclusion) vulnerability and an RCE (Remote Code Execution) vulnerability. I will utilize the tools within the &lsquo;pearcmd.php&rsquo; file to craft manipulated files. Within a web environment, we can leverage the functionalities of &lsquo;pearcmd&rsquo; by controlling command-line parameters. This Proof of Concept (PoC) is highly specialized, yet it serves as an opportunity for me to explore new methods of penetration within web environments.]]></description>
+    <description><![CDATA[In this instance, I will delve into an LFI (Local File Inclusion) vulnerability and an RCE (Remote Code Execution) vulnerability. I will utilize the tools within the &lsquo;pearcmd.php&rsquo; file to craft manipulated files. Within a web environment, we can leverage the functionalities of &lsquo;pearcmd&rsquo; by controlling command-line parameters. This Proof of Concept (PoC) is highly specialized, yet it serves as an opportunity for me to explore new methods of penetration within web environments.]]></description>
+</item>
+<item>
+    <title>Exploring the Versatile Flipper Zero: First Impressions and Hands-On</title>
+    <link>https://h4ndsh.github.io/2023/flipperzero/</link>
+    <pubDate>Tue, 10 Oct 2023 00:00:00 &#43;0000</pubDate>
+    <author>h4ndsh</author>
+    <guid>https://h4ndsh.github.io/2023/flipperzero/</guid>
+    <description><![CDATA[I recently acquired a Flipper Zero, a multi-tool device that can be used for a variety of tasks, including security research, hardware hacking, and DIY electronics. In this blog post, I will share my first impressions of the Flipper Zero, as well as some of the projects I have been working on with it.
+I am excited to explore all of the possibilities that the Flipper Zero has to offer. I believe that it is a valuable tool for anyone who is interested in security, hardware, or electronics.]]></description>
 </item>
 <item>
     <title>Saphety Phishing Campaign</title>
