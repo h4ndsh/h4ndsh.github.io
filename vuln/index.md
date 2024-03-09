@@ -87,6 +87,12 @@
       </thead>
       <tbody>
         <tr>
+          <td><a href="https://enso-origins.com" target="_blank">Enso Origins</a></td>
+          <td>Blind XSS</td>
+          <td>2024</td>
+          <td class="high">Medium</td>
+        </tr>
+        <tr>
           <td><a href="https://www.airc.pt" target="_blank">AIRC</a></td>
           <td>DOM-based Injection</td>
           <td>2024</td>
