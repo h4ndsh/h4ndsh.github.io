@@ -86,6 +86,12 @@
         </tr>
       </thead>
       <tbody>
+      <tr>
+          <td><a href="https://enso-origins.com" target="_blank">Enso Origins</a></td>
+          <td>RCE</td>
+          <td>2024</td>
+          <td class="critical">Critical</td>
+        </tr>
         <tr>
           <td><a href="https://enso-origins.com" target="_blank">Enso Origins</a></td>
           <td>Blind XSS</td>
