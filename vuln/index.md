@@ -1,4 +1,4 @@
-# Bug Bounty
+# Vulnerabilities Discovered and Reported
 
 
 <style>
@@ -72,8 +72,8 @@
     }
   </style>
 
-# Vulnerabilities Discovered and Reported
-
+<br>
+<br>
 
 <div class="table-container">
     <table>
@@ -86,6 +86,18 @@
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td><a href="https://www.logicpulse.com" target="_blank">Logicpulse</a></td>
+          <td>LFI</td>
+          <td>2024</td>
+          <td class="critical">CRITICAL</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.logicpulse.com" target="_blank">Logicpulse</a></td>
+          <td>SQL Injection</td>
+          <td>2024</td>
+          <td class="critical">CRITICAL</td>
+        </tr>
         <tr>
           <td><a href="https://www.airc.pt" target="_blank">AIRC</a></td>
           <td>Reflected XSS</td>
