@@ -5,12 +5,13 @@
         <description>Hardware - Tag - H4ndSH</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>h4ndsh@outlook.com (h4ndsh)</managingEditor>
             <webMaster>h4ndsh@outlook.com (h4ndsh)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 14 Jan 2025 10:46:05 &#43;0100</lastBuildDate><atom:link href="https://h4ndsh.github.io/tags/hardware/" rel="self" type="application/rss+xml" /><item>
-    <title>DIY LAN Turtle - Building a Stealth Remote Access Device</title>
+    <title>DIY LAN Turtle - Building a Stealth Remote Access Device 🔒</title>
     <link>https://h4ndsh.github.io/2025/lanturtle-vpn/</link>
     <pubDate>Tue, 14 Jan 2025 10:46:05 &#43;0100</pubDate>
     <author>h4ndsh</author>
     <guid>https://h4ndsh.github.io/2025/lanturtle-vpn/</guid>
-    <description><![CDATA[Summary This post details how to build a DIY stealth remote access device using the Luckfox Pico Max RV1106, inspired by the commercial LAN Turtle but at a fraction of the cost. We&rsquo;ll cover everything from hardware selection and OS installation to setting up secure remote access using Twingate VPN, making it perfect for security professionals and network administrators who need reliable remote access without complex port forwarding or traditional VPN setups.]]></description>
+    <description><![CDATA[In this post, I share my experience building a DIY stealth remote access device using the Luckfox Pico Max RV1106. Inspired by the commercial LAN Turtle but seeking a more affordable solution, I created this device to enable secure remote network access without complex port forwarding or traditional VPN setups. This project served as both a practical solution and a valuable learning experience in hardware integration and network security.
+Introduction My need was simple: I wanted reliable remote access to local networks without the hassle of router configuration or complex VPN server setups.]]></description>
 </item>
 </channel>
 </rss>

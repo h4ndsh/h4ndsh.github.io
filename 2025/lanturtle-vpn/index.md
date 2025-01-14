@@ -1,19 +1,16 @@
-# DIY LAN Turtle - Building a Stealth Remote Access Device
+# DIY LAN Turtle - Building a Stealth Remote Access Device 🔒
 
 
-# Summary
+In this post, I share my experience building a DIY stealth remote access device using the Luckfox Pico Max RV1106. Inspired by the commercial LAN Turtle but seeking a more affordable solution, I created this device to enable secure remote network access without complex port forwarding or traditional VPN setups. This project served as both a practical solution and a valuable learning experience in hardware integration and network security.
 
-This post details how to build a DIY stealth remote access device using the Luckfox Pico Max RV1106, inspired by the commercial LAN Turtle but at a fraction of the cost. We'll cover everything from hardware selection and OS installation to setting up secure remote access using Twingate VPN, making it perfect for security professionals and network administrators who need reliable remote access without complex port forwarding or traditional VPN setups.
 
-# Introduction 🎯
+# Introduction
 
-Every security professional knows the value of reliable remote access to local networks. While solutions like port forwarding and traditional VPNs exist, they often come with their own set of complications and security concerns. This project was born from the need to access local networks remotely without the hassle of router configuration or complex VPN server setups.
-
-The commercial [LAN Turtle](https://shop.hak5.org/products/lan-turtle) already offers these capabilities, but at a premium price point. This project aims to create a similar solution at a more affordable price while providing an excellent learning opportunity. After all, the best way to understand a tool is to build one yourself! 
+My need was simple: I wanted reliable remote access to local networks without the hassle of router configuration or complex VPN server setups. While the commercial [LAN Turtle](https://shop.hak5.org/products/lan-turtle) offers these capabilities, its premium price point led me to explore building my own solution. This project became an opportunity to not only create a cost-effective alternative but also to deepen my understanding of the underlying technologies.
 
 # Hardware Selection 🛠️
 
-After careful consideration, I chose the [Luckfox Pico Max RV1106](https://www.luckfox.com/EN-Luckfox-Pico-Max) as the heart of this project. This compact powerhouse offers an impressive set of features at a remarkably affordable price point.
+After researching various options, I chose the [Luckfox Pico Max RV1106](https://www.luckfox.com/EN-Luckfox-Pico-Max) as the core of my project. This compact device offers an impressive set of features at a remarkably affordable price point.
 
 ## Specifications
 
@@ -31,31 +28,32 @@ After careful consideration, I chose the [Luckfox Pico Max RV1106](https://www.l
 | **Ethernet Port**     | 10/100M Ethernet controller and embedded PHY                              |
 | **Default Storage**   | SPI NAND FLASH (256MB)                                                    |
 
-While it lacks some features like PoE and Gigabit Ethernet, the price-to-performance ratio makes it an excellent choice for this project.
+While it lacks some features I would have liked (PoE and Gigabit Ethernet), the price-to-performance ratio made it an excellent choice for my project.
 
 ![LuckFox GPIO](Luckfox-Pico-Pro-details-inter.jpg "LuckFox GPIO")
 
-## Shopping List 🛍️
+## 🛍️ Shopping List
 
+Here's what I needed for this project:
 - [Luckfox Pico Max RV1106](https://www.luckfox.com/EN-Luckfox-Pico-Max) - €18
 - 64GB microSD card - €10
 - microSD to USB adapter - €2
 
 ## Alternative Hardware Options 
 
-For those looking to experiment with different hardware, consider these alternatives:
+For those interested in trying different hardware, here are some alternatives I considered:
 
 - [Raspberry Pi Zero W](https://www.raspberrypi.org/products/raspberry-pi-zero-w/) + USB Ethernet
 - [Orange Pi Zero 3](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-Zero-3.html)
 - [GL.iNet GL-MT300N V2](https://www.gl-inet.com/products/gl-mt300n-v2/)
 
-# Getting Started 🚀
+# 🚀 Implementation 
 
-Let's dive into setting up our device. All testing was performed on Linux, but the process should be similar on other operating systems.
+I performed all testing on Linux. Here's how I put everything together:
 
 ## Setting Up the SDK
 
-First, we need to prepare our development environment. Follow these steps to get the SDK ready:
+First, I prepared my development environment:
 
 ```bash
 sudo apt update
@@ -69,93 +67,94 @@ cd luckfox-pico
 ./build.sh lunch
 ```
 
-When running the lunch script, select:
+In the lunch script, I selected:
 - RV1106 board [6]
 - SD Card boot [0]
 - Ubuntu OS [1]
 
 ## Building the Operating System ⚙️
 
-A special note: The default kernel needs modification to support our VPN service. Here's how to enable the required UTS namespace:
+I discovered that the default kernel needed modification to support the VPN service. Here's how I enabled the required UTS namespace:
 
 ```bash
 ./build.sh kernelconfig
 ```
 
-Navigate to:
+I navigated to:
 ```bash
 -> General setup
 -> Namespaces support (NAMESPACES [=Y])  
 [*] UTS namespace (NEW) 
 ```
 
-Save the configuration and build the kernel. The output files will be stored in `luckfox-pico/output/image/`.
+After saving the configuration and building the kernel, the output files were stored in `luckfox-pico/output/image/`.
 
-## OS Installation 💾
+## 📀 OS Installation 
 
-I've provided the compiled files [here](./image.tar.xz) for convenience. Extract them with:
+I've shared my compiled files [here](./image.tar.xz). To extract them:
 ```bash
 tar -xvf image.tar.xz
 ```
 
-For installation, I used a Windows VM and the `SocToolKit` software provided in the SDK (`luckfox-pico/tools/windows/SocToolKit`). The interface is straightforward - just select your compiled image files and target microSD card. For detailed instructions, check the [official documentation](https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-quick-start/SD-Card-burn-image).
+For installation, I used a Windows VM and the `SocToolKit` software from the SDK (`luckfox-pico/tools/windows/SocToolKit`). The process was straightforward - just selecting the compiled image files and target microSD card. The [official documentation](https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-quick-start/SD-Card-burn-image) provides detailed instructions if needed.
 
-## VPN Setup 🔒
+## VPN Setup
 
 ![Twingate](./Twingate_Logo.jpeg "Twingate")
 
-For remote access, we're using [Twingate](https://www.twingate.com), which offers a generous free tier perfect for this project.
+For remote access, I chose [Twingate](https://www.twingate.com) because of its excellent free tier that perfectly suited my needs.
 
-1. Create a Twingate account
-2. Create a new Network [(Network > Remote Networks > + Remote Network - select "other")](https://h4ndsh.twingate.com/networks?sortBy=name)
-3. Add a Connector (Network > "network name" > + Add Connector)
-4. Install the Connector on your Luckfox Pico ("Inside Connector" > Linux > Generate Tokens > Copy Command)
-5. SSH into the Luckfox Pico and run:
+1. Created a Twingate account
+2. Created a new Network [(Network > Remote Networks > + Remote Network - select "other")](https://h4ndsh.twingate.com/networks?sortBy=name)
+3. Added a Connector (Network > "network name" > + Add Connector)
+4. Installed the Connector on my Luckfox Pico ("Inside Connector" > Linux > Generate Tokens > Copy Command)
+5. SSH'd into the Luckfox Pico and ran:
 
 ```bash
 curl "https://binaries.twingate.com/connector/setup.sh" | sudo TWINGATE_ACCESS_TOKEN="" TWINGATE_REFRESH_TOKEN="" TWINGATE_NETWORK="h4ndsh" TWINGATE_LABEL_DEPLOYED_BY="linux" bash
 ```
 
-## Client Setup 💻
+## Client Setup
 
-1. Install the client:
+1. Installed the client:
 ```bash
 curl -s https://binaries.twingate.com/client/linux/install.sh | sudo bash
 ```
 
-2. Configure:
+2. Configured:
 ```bash
 twingate setup
 ```
 
-3. Start the service:
+3. Started the service:
 ```bash
 twingate start
 ```
 
-## Resources Configuration 🎯
+## Resources Configuration
 
-Add resources through the Twingate dashboard [(Network > Resources > + Resource)](https://h4ndsh.twingate.com/resources?sortBy=name)
+I added resources through the Twingate dashboard [(Network > Resources > + Resource)](https://h4ndsh.twingate.com/resources?sortBy=name)
 
-# Testing Your Setup 🧪
+# Testing the Setup
 
-Start by adding SSH access to your Luckfox Pico as a resource. Then, scan your network for potential targets:
+I started by adding SSH access to my Luckfox Pico as a resource. Then, I scanned my network for potential targets:
 
 ```bash
 nmap -sn -Sv x.x.x.x/24
 ```
 
-Add additional resources like RDP or VNC as needed.
+Additional resources like RDP or VNC can be added as needed.
 
-# 3D Printed Case 🖨️
+# 3D Printed Case
 
-To protect your device and make it more portable, consider printing a case. Here are some great options:
+To protect my device and make it more portable, I looked into printing a case. Here are the models I found most useful:
 
 - [Thingiverse Model](https://www.thingiverse.com/thing:6670447)
 - [Printables Model](https://www.printables.com/model/945919-luckfox-pico-promax-rv1106-case-pico-plusmini-rv11?lang=en)
 
-# Future Improvements 🚀
+# Future Improvements
 
+Here's what I'm planning to add to my project:
 - [ ] ESP32 integration
 - [ ] Battery installation
 - [ ] RTC implementation
