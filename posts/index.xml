@@ -3,14 +3,31 @@
         <title>All Posts - H4ndSH</title>
         <link>https://h4ndsh.github.io/posts/</link>
         <description>All Posts | H4ndSH</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>handsh@mail.com (h4ndsh)</managingEditor>
-            <webMaster>handsh@mail.com (h4ndsh)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 12 Oct 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://h4ndsh.github.io/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>PHP &lt;= 7.3 Local File Inclusion RCE with LFI (PoC)</title>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>h4ndsh@outlook.com (h4ndsh)</managingEditor>
+            <webMaster>h4ndsh@outlook.com (h4ndsh)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 14 Jan 2025 10:46:05 &#43;0100</lastBuildDate><atom:link href="https://h4ndsh.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>DIY LAN Turtle - Building a Stealth Remote Access Device</title>
+    <link>https://h4ndsh.github.io/2025/lanturtle-vpn/</link>
+    <pubDate>Tue, 14 Jan 2025 10:46:05 &#43;0100</pubDate>
+    <author>h4ndsh</author>
+    <guid>https://h4ndsh.github.io/2025/lanturtle-vpn/</guid>
+    <description><![CDATA[Summary This post details how to build a DIY stealth remote access device using the Luckfox Pico Max RV1106, inspired by the commercial LAN Turtle but at a fraction of the cost. We&rsquo;ll cover everything from hardware selection and OS installation to setting up secure remote access using Twingate VPN, making it perfect for security professionals and network administrators who need reliable remote access without complex port forwarding or traditional VPN setups.]]></description>
+</item>
+<item>
+    <title>Exploring the Versatile Flipper Zero: First Impressions and Hands-On</title>
+    <link>https://h4ndsh.github.io/2023/flipperzero/</link>
+    <pubDate>Sat, 21 Oct 2023 00:00:00 &#43;0000</pubDate>
+    <author>h4ndsh</author>
+    <guid>https://h4ndsh.github.io/2023/flipperzero/</guid>
+    <description><![CDATA[I recently acquired a Flipper Zero, a multi-tool device that can be used for a variety of tasks, including security research, hardware hacking, and DIY electronics. In this blog post, I will share my first impressions of the Flipper Zero, as well as some of the projects I have been working on with it.
+I am excited to explore all of the possibilities that the Flipper Zero has to offer. I believe that it is a valuable tool for anyone who is interested in security, hardware, or electronics.]]></description>
+</item>
+<item>
+    <title>PHP &lt;= 7.3 Local File Inclusion with RCE (PoC)</title>
     <link>https://h4ndsh.github.io/2023/phpinfo/</link>
     <pubDate>Thu, 12 Oct 2023 00:00:00 &#43;0000</pubDate>
     <author>h4ndsh</author>
     <guid>https://h4ndsh.github.io/2023/phpinfo/</guid>
-    <description><![CDATA[This post aims to acquire knowledge about exploiting vulnerabilities in web systems. In this instance, I will delve into an LFI (Local File Inclusion) vulnerability and an RCE (Remote Code Execution) vulnerability. I will utilize the tools within the &lsquo;pearcmd.php&rsquo; file to craft manipulated files. Within a web environment, we can leverage the functionalities of &lsquo;pearcmd&rsquo; by controlling command-line parameters. This Proof of Concept (PoC) is highly specialized, yet it serves as an opportunity for me to explore new methods of penetration within web environments.]]></description>
+    <description><![CDATA[In this instance, I will delve into an LFI (Local File Inclusion) vulnerability and an RCE (Remote Code Execution) vulnerability. I will utilize the tools within the &lsquo;pearcmd.php&rsquo; file to craft manipulated files. Within a web environment, we can leverage the functionalities of &lsquo;pearcmd&rsquo; by controlling command-line parameters. This Proof of Concept (PoC) is highly specialized, yet it serves as an opportunity for me to explore new methods of penetration within web environments.]]></description>
 </item>
 <item>
     <title>Saphety Phishing Campaign</title>
@@ -19,7 +36,7 @@
     <author>h4ndsh</author>
     <guid>https://h4ndsh.github.io/2023/saphety/</guid>
     <description><![CDATA[This article is about a phishing campaign that my company received. The campaign targeted Saphety, a Portuguese company providing electronic invoicing services. When my enterprise received the phishing email, I decided to investigate further. In this article, I will share my findings.
-Summary  Summary What is Saphety? The phishing email Website analysis  Decoding the encoded strings Form analysis POST method analysis Server analysis    What is Saphety?]]></description>
+Summary Summary What is Saphety? The phishing email Website analysis Decoding the encoded strings Form analysis POST method analysis Server analysis What is Saphety? Saphety is a Portuguese company that offers electronic invoicing services.]]></description>
 </item>
 <item>
     <title>My resources to learn Ethical Hacking</title>
@@ -28,7 +45,7 @@ Summary  Summary What is Saphety? The phishing email Website analysis  Decoding 
     <author>h4ndsh</author>
     <guid>https://h4ndsh.github.io/2023/myresources/</guid>
     <description><![CDATA[Since I started my journey in the world of cybersecurity, I&rsquo;ve been learning and improving my skills in this area. I&rsquo;ve been asked a lot of times about the resources I used to learn ethical hacking, so I decided to create this post to share with you the resources I used to learn ethical hacking.
-Summary  Summary How to start? Where to learn?  CTFs Blogs Github repositories   Tools Being up to date  How to start?]]></description>
+Summary Summary How to start? Where to learn? CTFs Blogs Github repositories Tools Being up to date How to start?]]></description>
 </item>
 </channel>
 </rss>

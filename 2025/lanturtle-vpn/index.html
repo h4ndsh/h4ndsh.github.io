@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>DIY LAN Turtle - Building a Stealth Remote Access Device - H4ndSH</title><meta name="Description" content="A comprehensive guide to building your own stealth remote access device using the Luckfox Pico Max, complete with VPN setup and 3D printed case - perfect for secure remote network access on a budget."><meta property="og:title" content="DIY LAN Turtle - Building a Stealth Remote Access Device" />
+<meta property="og:description" content="A comprehensive guide to building your own stealth remote access device using the Luckfox Pico Max, complete with VPN setup and 3D printed case - perfect for secure remote network access on a budget." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://h4ndsh.github.io/2025/lanturtle-vpn/" /><meta property="og:image" content="https://h4ndsh.github.io/2025/lanturtle-vpn/featured-image.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-01-14T10:46:05+01:00" />
+<meta property="article:modified_time" content="2025-01-14T10:46:05+01:00" /><meta property="og:site_name" content="H4ndSH" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://h4ndsh.github.io/2025/lanturtle-vpn/featured-image.png" /><meta name="twitter:title" content="DIY LAN Turtle - Building a Stealth Remote Access Device"/>
+<meta name="twitter:description" content="A comprehensive guide to building your own stealth remote access device using the Luckfox Pico Max, complete with VPN setup and 3D printed case - perfect for secure remote network access on a budget."/>
+<meta name="twitter:site" content="@h4ndsh"/>
+<meta name="application-name" content="H4ndSH">
+<meta name="apple-mobile-web-app-title" content="H4ndSH"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#55309b"><link rel="icon" href="https://avatars.githubusercontent.com/u/26088700?v=4"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#55309b"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://h4ndsh.github.io/2025/lanturtle-vpn/" /><link rel="prev" href="https://h4ndsh.github.io/2023/flipperzero/" /><link rel="stylesheet" href="/css/style.min.49d6f433b0314fb247b1fe7c43de5820e7f136c1e1b94857d70d5de395a493e0bab1420b847934ca1c74f3cc8da6b9555719a906706dd7588919c735b9625e97.css" integrity="sha512-Sdb0M7AxT7JHsf58Q95YIOfxNsHhuUhX1w1d45Wkk+C6sUILhHk0yhx088yNprlVVxmpBnBt11iJGcc1uWJelw=="><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "DIY LAN Turtle - Building a Stealth Remote Access Device",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/h4ndsh.github.io\/2025\/lanturtle-vpn\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/h4ndsh.github.io\/2025\/lanturtle-vpn\/featured-image.png",
+                            "width":  890 ,
+                            "height":  628 
+                        }],"genre": "posts","keywords": "Hardware, Security, Remote Access","wordcount":  784 ,
+        "url": "https:\/\/h4ndsh.github.io\/2025\/lanturtle-vpn\/","datePublished": "2025-01-14T10:46:05+01:00","dateModified": "2025-01-14T10:46:05+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "h4ndsh"
+            },"description": "A comprehensive guide to building your own stealth remote access device using the Luckfox Pico Max, complete with VPN setup and 3D printed case - perfect for secure remote network access on a budget."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="H4ndSH">H4ndSH</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> All Posts </a><a class="menu-item" href="/about/" title="About Me"> About </a><a class="menu-item" href="/vuln/" title="Vulnerabilities"><i class='fa fa-trophy fa-fw' style='color:#ffd700;' aria-hidden='true'></i>  </a><a class="menu-item" href="https://github.com/h4ndsh" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="H4ndSH">H4ndSH</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">All Posts</a><a class="menu-item" href="/about/" title="About Me">About</a><a class="menu-item" href="/vuln/" title="Vulnerabilities"><i class='fa fa-trophy fa-fw' style='color:#ffd700;' aria-hidden='true'></i></a><a class="menu-item" href="https://github.com/h4ndsh" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">DIY LAN Turtle - Building a Stealth Remote Access Device</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://h4ndsh.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>h4ndsh</a></span>&nbsp;<span class="post-category">included in <a href="/categories/pentest/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Pentest</a>&nbsp;<a href="/categories/stealth-remote-access/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Stealth Remote Access</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="Jan 14, 2025">Jan 14, 2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;784 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/2025/lanturtle-vpn/featured-image.png"
+        data-srcset="/2025/lanturtle-vpn/featured-image.png, /2025/lanturtle-vpn/featured-image.png 1.5x, /2025/lanturtle-vpn/featured-image.png 2x"
+        data-sizes="auto"
+        alt="/2025/lanturtle-vpn/featured-image.png"
+        title="A comprehensive guide to building your own stealth remote access device using the Luckfox Pico Max, complete with VPN setup and 3D printed case - perfect for secure remote network access on a budget." /></div><div class="content" id="content"><h1 id="summary">Summary</h1>
+<p>This post details how to build a DIY stealth remote access device using the Luckfox Pico Max RV1106, inspired by the commercial LAN Turtle but at a fraction of the cost. We&rsquo;ll cover everything from hardware selection and OS installation to setting up secure remote access using Twingate VPN, making it perfect for security professionals and network administrators who need reliable remote access without complex port forwarding or traditional VPN setups.</p>
+<h1 id="introduction-">Introduction 🎯</h1>
+<p>Every security professional knows the value of reliable remote access to local networks. While solutions like port forwarding and traditional VPNs exist, they often come with their own set of complications and security concerns. This project was born from the need to access local networks remotely without the hassle of router configuration or complex VPN server setups.</p>
+<p>The commercial <a href="https://shop.hak5.org/products/lan-turtle" target="_blank" rel="noopener noreffer ">LAN Turtle</a> already offers these capabilities, but at a premium price point. This project aims to create a similar solution at a more affordable price while providing an excellent learning opportunity. After all, the best way to understand a tool is to build one yourself!</p>
+<h1 id="hardware-selection-">Hardware Selection 🛠️</h1>
+<p>After careful consideration, I chose the <a href="https://www.luckfox.com/EN-Luckfox-Pico-Max" target="_blank" rel="noopener noreffer ">Luckfox Pico Max RV1106</a> as the heart of this project. This compact powerhouse offers an impressive set of features at a remarkably affordable price point.</p>
+<h2 id="specifications">Specifications</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Component</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Processor</strong></td>
+<td>Cortex A7 @ 1.2GHz</td>
+</tr>
+<tr>
+<td><strong>NPU</strong></td>
+<td><strong>Pro:</strong> 0.5 TOPS, supports int4, int8, and int16</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Max:</strong> 1 TOPS, supports int4, int8, and int16</td>
+</tr>
+<tr>
+<td><strong>ISP</strong></td>
+<td>Input 5M @30fps (Max)</td>
+</tr>
+<tr>
+<td><strong>Memory</strong></td>
+<td><strong>Pro:</strong> 128MB DDR2</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Max:</strong> 256MB DDR2</td>
+</tr>
+<tr>
+<td><strong>USB</strong></td>
+<td>USB 2.0 Host/Device</td>
+</tr>
+<tr>
+<td><strong>Camera</strong></td>
+<td>MIPI CSI 2-lane</td>
+</tr>
+<tr>
+<td><strong>GPIO</strong></td>
+<td>26 × GPIO pins</td>
+</tr>
+<tr>
+<td><strong>Ethernet Port</strong></td>
+<td>10/100M Ethernet controller and embedded PHY</td>
+</tr>
+<tr>
+<td><strong>Default Storage</strong></td>
+<td>SPI NAND FLASH (256MB)</td>
+</tr>
+</tbody>
+</table>
+<p>While it lacks some features like PoE and Gigabit Ethernet, the price-to-performance ratio makes it an excellent choice for this project.</p>
+<p><figure><a class="lightgallery" href="/2025/lanturtle-vpn/Luckfox-Pico-Pro-details-inter.jpg" title="LuckFox GPIO" data-thumbnail="/2025/lanturtle-vpn/Luckfox-Pico-Pro-details-inter.jpg" data-sub-html="<h2>LuckFox GPIO</h2><p>LuckFox GPIO</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2025/lanturtle-vpn/Luckfox-Pico-Pro-details-inter.jpg"
+            data-srcset="/2025/lanturtle-vpn/Luckfox-Pico-Pro-details-inter.jpg, /2025/lanturtle-vpn/Luckfox-Pico-Pro-details-inter.jpg 1.5x, /2025/lanturtle-vpn/Luckfox-Pico-Pro-details-inter.jpg 2x"
+            data-sizes="auto"
+            alt="/2025/lanturtle-vpn/Luckfox-Pico-Pro-details-inter.jpg" width="888" height="648" />
+    </a><figcaption class="image-caption">LuckFox GPIO</figcaption>
+    </figure></p>
+<h2 id="shopping-list-">Shopping List 🛍️</h2>
+<ul>
+<li><a href="https://www.luckfox.com/EN-Luckfox-Pico-Max" target="_blank" rel="noopener noreffer ">Luckfox Pico Max RV1106</a> - €18</li>
+<li>64GB microSD card - €10</li>
+<li>microSD to USB adapter - €2</li>
+</ul>
+<h2 id="alternative-hardware-options">Alternative Hardware Options</h2>
+<p>For those looking to experiment with different hardware, consider these alternatives:</p>
+<ul>
+<li><a href="https://www.raspberrypi.org/products/raspberry-pi-zero-w/" target="_blank" rel="noopener noreffer ">Raspberry Pi Zero W</a> + USB Ethernet</li>
+<li><a href="http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-Zero-3.html" target="_blank" rel="noopener noreffer ">Orange Pi Zero 3</a></li>
+<li><a href="https://www.gl-inet.com/products/gl-mt300n-v2/" target="_blank" rel="noopener noreffer ">GL.iNet GL-MT300N V2</a></li>
+</ul>
+<h1 id="getting-started-">Getting Started 🚀</h1>
+<p>Let&rsquo;s dive into setting up our device. All testing was performed on Linux, but the process should be similar on other operating systems.</p>
+<h2 id="setting-up-the-sdk">Setting Up the SDK</h2>
+<p>First, we need to prepare our development environment. Follow these steps to get the SDK ready:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt update
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo apt-get install -y git ssh make gcc gcc-multilib g++-multilib module-assistant expect g++ gawk texinfo libssl-dev bison flex fakeroot cmake unzip gperf autoconf device-tree-compiler libncurses5-dev pkg-config bc python-is-python3 passwd openssl openssh-server openssh-client vim file cpio rsync
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/LuckfoxTECH/luckfox-pico.git
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> luckfox-pico
+</span></span><span class="line"><span class="cl">./build.sh lunch
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>When running the lunch script, select:</p>
+<ul>
+<li>RV1106 board [6]</li>
+<li>SD Card boot [0]</li>
+<li>Ubuntu OS [1]</li>
+</ul>
+<h2 id="building-the-operating-system-">Building the Operating System ⚙️</h2>
+<p>A special note: The default kernel needs modification to support our VPN service. Here&rsquo;s how to enable the required UTS namespace:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./build.sh kernelconfig
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Navigate to:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">-&gt; General setup
+</span></span><span class="line"><span class="cl">-&gt; Namespaces support <span class="o">(</span>NAMESPACES <span class="o">[=</span>Y<span class="o">])</span>  
+</span></span><span class="line"><span class="cl"><span class="o">[</span>*<span class="o">]</span> UTS namespace <span class="o">(</span>NEW<span class="o">)</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Save the configuration and build the kernel. The output files will be stored in <code>luckfox-pico/output/image/</code>.</p>
+<h2 id="os-installation-">OS Installation 💾</h2>
+<p>I&rsquo;ve provided the compiled files <a href="./image.tar.xz" rel="">here</a> for convenience. Extract them with:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar -xvf image.tar.xz
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>For installation, I used a Windows VM and the <code>SocToolKit</code> software provided in the SDK (<code>luckfox-pico/tools/windows/SocToolKit</code>). The interface is straightforward - just select your compiled image files and target microSD card. For detailed instructions, check the <a href="https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-quick-start/SD-Card-burn-image" target="_blank" rel="noopener noreffer ">official documentation</a>.</p>
+<h2 id="vpn-setup-">VPN Setup 🔒</h2>
+<p><figure><a class="lightgallery" href="./Twingate_Logo.jpeg" title="Twingate" data-thumbnail="./Twingate_Logo.jpeg" data-sub-html="<h2>Twingate</h2><p>Twingate</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="./Twingate_Logo.jpeg"
+            data-srcset="./Twingate_Logo.jpeg, ./Twingate_Logo.jpeg 1.5x, ./Twingate_Logo.jpeg 2x"
+            data-sizes="auto"
+            alt="./Twingate_Logo.jpeg" />
+    </a><figcaption class="image-caption">Twingate</figcaption>
+    </figure></p>
+<p>For remote access, we&rsquo;re using <a href="https://www.twingate.com" target="_blank" rel="noopener noreffer ">Twingate</a>, which offers a generous free tier perfect for this project.</p>
+<ol>
+<li>Create a Twingate account</li>
+<li>Create a new Network <a href="https://h4ndsh.twingate.com/networks?sortBy=name" target="_blank" rel="noopener noreffer ">(Network &gt; Remote Networks &gt; + Remote Network - select &ldquo;other&rdquo;)</a></li>
+<li>Add a Connector (Network &gt; &ldquo;network name&rdquo; &gt; + Add Connector)</li>
+<li>Install the Connector on your Luckfox Pico (&ldquo;Inside Connector&rdquo; &gt; Linux &gt; Generate Tokens &gt; Copy Command)</li>
+<li>SSH into the Luckfox Pico and run:</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl <span class="s2">&#34;https://binaries.twingate.com/connector/setup.sh&#34;</span> <span class="p">|</span> sudo <span class="nv">TWINGATE_ACCESS_TOKEN</span><span class="o">=</span><span class="s2">&#34;&#34;</span> <span class="nv">TWINGATE_REFRESH_TOKEN</span><span class="o">=</span><span class="s2">&#34;&#34;</span> <span class="nv">TWINGATE_NETWORK</span><span class="o">=</span><span class="s2">&#34;h4ndsh&#34;</span> <span class="nv">TWINGATE_LABEL_DEPLOYED_BY</span><span class="o">=</span><span class="s2">&#34;linux&#34;</span> bash
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="client-setup-">Client Setup 💻</h2>
+<ol>
+<li>Install the client:</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -s https://binaries.twingate.com/client/linux/install.sh <span class="p">|</span> sudo bash
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>Configure:</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">twingate setup
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>Start the service:</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">twingate start
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="resources-configuration-">Resources Configuration 🎯</h2>
+<p>Add resources through the Twingate dashboard <a href="https://h4ndsh.twingate.com/resources?sortBy=name" target="_blank" rel="noopener noreffer ">(Network &gt; Resources &gt; + Resource)</a></p>
+<h1 id="testing-your-setup-">Testing Your Setup 🧪</h1>
+<p>Start by adding SSH access to your Luckfox Pico as a resource. Then, scan your network for potential targets:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap -sn -Sv x.x.x.x/24
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Add additional resources like RDP or VNC as needed.</p>
+<h1 id="3d-printed-case-">3D Printed Case 🖨️</h1>
+<p>To protect your device and make it more portable, consider printing a case. Here are some great options:</p>
+<ul>
+<li><a href="https://www.thingiverse.com/thing:6670447" target="_blank" rel="noopener noreffer ">Thingiverse Model</a></li>
+<li><a href="https://www.printables.com/model/945919-luckfox-pico-promax-rv1106-case-pico-plusmini-rv11?lang=en" target="_blank" rel="noopener noreffer ">Printables Model</a></li>
+</ul>
+<h1 id="future-improvements-">Future Improvements 🚀</h1>
+<ul>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> ESP32 integration</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Battery installation</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> RTC implementation</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Penetration testing scripts</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Custom OS with ESP32, security tools, and testing scripts</li>
+</ul>
+</br>
+<center>
+  <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXFxNWN6YnN0dmtjcHJjOGVzYzF6MnRqZTU0MG5oY3B1N2p1Y3QxMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mQG644PY8O7rG/giphy.gif" width="60%" height="60%" class="center"/>
+</center></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on Jan 14, 2025</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/hardware/">Hardware</a>,&nbsp;<a href="/tags/security/">Security</a>,&nbsp;<a href="/tags/remote-access/">Remote Access</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2023/flipperzero/" class="prev" rel="prev" title="Exploring the Versatile Flipper Zero: First Impressions and Hands-On"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Exploring the Versatile Flipper Zero: First Impressions and Hands-On</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.123.7">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.f1b10c54ef8e7ea0c938baba89a68e47962cb91f87edfcf0ae7abf0ec7bbb510e5d980a2b5a69686d7a44eae747183e3ed5cd960ed6fe66552c947e6fca4ff67.js" integrity="sha512-8bEMVO+OfqDJOLq6iaaOR5YsuR+H7fzwrnq/Dse7tRDl2YCitaaWhtekTq50cYPj7VzZYO1v5mVSyUfm/KT/Zw=="></script></body>
+</html>

@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Exploring the Versatile Flipper Zero: First Impressions and Hands-On - H4ndSH</title><meta name="Description" content="First impressions from Flipper Zero"><meta property="og:title" content="Exploring the Versatile Flipper Zero: First Impressions and Hands-On" />
+<meta property="og:description" content="First impressions from Flipper Zero" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://h4ndsh.github.io/2023/flipperzero/" /><meta property="og:image" content="https://h4ndsh.github.io/2023/flipperzero/featured-image.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-10-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-21T00:00:00+00:00" /><meta property="og:site_name" content="H4ndSH" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://h4ndsh.github.io/2023/flipperzero/featured-image.png" /><meta name="twitter:title" content="Exploring the Versatile Flipper Zero: First Impressions and Hands-On"/>
+<meta name="twitter:description" content="First impressions from Flipper Zero"/>
+<meta name="twitter:site" content="@h4ndsh"/>
+<meta name="application-name" content="H4ndSH">
+<meta name="apple-mobile-web-app-title" content="H4ndSH"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#55309b"><link rel="icon" href="https://avatars.githubusercontent.com/u/26088700?v=4"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#55309b"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://h4ndsh.github.io/2023/flipperzero/" /><link rel="prev" href="https://h4ndsh.github.io/2023/phpinfo/" /><link rel="next" href="https://h4ndsh.github.io/2025/lanturtle-vpn/" /><link rel="stylesheet" href="/css/style.min.49d6f433b0314fb247b1fe7c43de5820e7f136c1e1b94857d70d5de395a493e0bab1420b847934ca1c74f3cc8da6b9555719a906706dd7588919c735b9625e97.css" integrity="sha512-Sdb0M7AxT7JHsf58Q95YIOfxNsHhuUhX1w1d45Wkk+C6sUILhHk0yhx088yNprlVVxmpBnBt11iJGcc1uWJelw=="><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Exploring the Versatile Flipper Zero: First Impressions and Hands-On",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/h4ndsh.github.io\/2023\/flipperzero\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/h4ndsh.github.io\/2023\/flipperzero\/featured-image.png",
+                            "width":  768 ,
+                            "height":  432 
+                        }],"genre": "posts","keywords": "FlipperZero, Hands-on, ESP32-WROOM, NRF24L01","wordcount":  1845 ,
+        "url": "https:\/\/h4ndsh.github.io\/2023\/flipperzero\/","datePublished": "2023-10-21T00:00:00+00:00","dateModified": "2023-11-21T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "h4ndsh"
+            },"description": "First impressions from Flipper Zero"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="H4ndSH">H4ndSH</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> All Posts </a><a class="menu-item" href="/about/" title="About Me"> About </a><a class="menu-item" href="/vuln/" title="Vulnerabilities"><i class='fa fa-trophy fa-fw' style='color:#ffd700;' aria-hidden='true'></i>  </a><a class="menu-item" href="https://github.com/h4ndsh" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="H4ndSH">H4ndSH</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">All Posts</a><a class="menu-item" href="/about/" title="About Me">About</a><a class="menu-item" href="/vuln/" title="Vulnerabilities"><i class='fa fa-trophy fa-fw' style='color:#ffd700;' aria-hidden='true'></i></a><a class="menu-item" href="https://github.com/h4ndsh" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Exploring the Versatile Flipper Zero: First Impressions and Hands-On</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://h4ndsh.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>h4ndsh</a></span>&nbsp;<span class="post-category">included in <a href="/categories/hardware/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Hardware</a>&nbsp;<a href="/categories/security/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Security</a>&nbsp;<a href="/categories/flipper-zero/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Flipper Zero</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="Oct 21, 2023">Oct 21, 2023</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1845 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;9 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/2023/flipperzero/featured-image.png"
+        data-srcset="/2023/flipperzero/featured-image.png, /2023/flipperzero/featured-image.png 1.5x, /2023/flipperzero/featured-image.png 2x"
+        data-sizes="auto"
+        alt="/2023/flipperzero/featured-image.png"
+        title="First impressions from Flipper Zero" /></div><div class="content" id="content"><p>I recently acquired a Flipper Zero, a multi-tool device that can be used for a variety of tasks, including security research, hardware hacking, and DIY electronics. In this blog post, I will share my first impressions of the Flipper Zero, as well as some of the projects I have been working on with it.</p>
+<p>I am excited to explore all of the possibilities that the Flipper Zero has to offer. I believe that it is a valuable tool for anyone who is interested in security, hardware, or electronics.</p>
+<p>I look forward to sharing my experiences with the Flipper Zero in future blog posts.</p>
+<h1 id="summary">Summary</h1>
+<ul>
+<li><a href="#summary" rel="">Summary</a></li>
+<li><a href="#introduction" rel="">Introduction</a></li>
+<li><a href="#what-is-a-flipper-zero" rel="">What is a Flipper Zero</a></li>
+<li><a href="#-why-buy-a-flipper-zero" rel="">💸 Why buy a Flipper Zero?</a></li>
+<li><a href="#-first-steps" rel="">🏁 First Steps</a>
+<ul>
+<li><a href="#installing-flipper-zero-firmware-update" rel="">Installing Flipper Zero Firmware Update</a></li>
+<li><a href="#installing-new-firmware" rel="">Installing New Firmware</a></li>
+</ul>
+</li>
+<li><a href="#%ef%b8%8f-lets-get-started" rel="">➡️ Let&rsquo;s Get Started</a>
+<ul>
+<li><a href="#nfc" rel="">NFC</a></li>
+</ul>
+</li>
+<li><a href="#-building-gpio-modules" rel="">🔨 Building GPIO modules</a>
+<ul>
+<li><a href="#nrf24l01" rel="">NRF24L01</a>
+<ul>
+<li><a href="#connection-with-flipper-zero" rel="">Connection with Flipper Zero</a>
+<ul>
+<li><a href="#connect-nrf24l01-board-with-flipper-zero" rel="">Connect NRF24L01 board with Flipper Zero</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#esp32-wroom" rel="">ESP32-WROOM</a>
+<ul>
+<li><a href="#connection-with-flipper-zero-1" rel="">Connection with Flipper Zero</a>
+<ul>
+<li><a href="#connect-esp32-wroom-32u-to-flipper-zero" rel="">Connect ESP32-WROOM-32U to Flipper Zero</a></li>
+<li><a href="#connect-micro-sd-tf-module-to-esp32-wroom-32u" rel="">Connect Micro SD TF Module to ESP32-WROOM-32U</a></li>
+<li><a href="#install-marauder-on-esp32-wroom" rel="">Install Marauder on ESP32-WROOM</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#-first-plugin" rel="">🤞 First Plugin</a></li>
+<li><a href="#references" rel="">References</a></li>
+</ul>
+<h1 id="introduction">Introduction</h1>
+<p>In the realm of security research, hardware hacking, and DIY electronics, the Flipper Zero has emerged as a versatile and indispensable tool. In this blog post, penned by the enthusiastic h4ndsh, we&rsquo;ll embark on a journey to discover the Flipper Zero&rsquo;s capabilities through their first-hand experiences. From the initial setup to exploring NFC capabilities and expanding its functionalities, this post promises to be an insightful guide for both beginners and seasoned hackers alike. So, let&rsquo;s delve into the world of the Flipper Zero and see how it can revolutionize your security and electronics endeavors. Happy hacking! 🐬💻🔐</p>
+<h1 id="what-is-a-flipper-zero">What is a Flipper Zero</h1>
+<p>The Flipper Zero does not need presentations. It is already a fairly well-known equipment for good and bad reasons. For those who are reading this post and have never heard of this equipment, the Flipper Zero is an open-source security and ethical hacking equipment, designed for security testing, protocol analysis, and software development activities.</p>
+<h1 id="-why-buy-a-flipper-zero">💸 Why buy a Flipper Zero?</h1>
+<p>The Flipper Zero is a versatile tool that can be used for a variety of purposes, including hacking. It is a popular choice for beginners because it is relatively inexpensive and easy to use, but it is also a powerful tool that can be used by experienced hackers to perform complex attacks.</p>
+<ul>
+<li>
+<p>It is a multi-tool device: The Flipper Zero can be used to interact with a wide variety of devices and protocols, including <code>NFC</code>, <code>RFID</code>, <code>IR</code>, and <code>sub-GHz</code> wireless. This makes it a great tool for learning about different hacking techniques and how they work.</p>
+</li>
+<li>
+<p>It is open source: The Flipper Zero is open source, which means that the code and hardware are freely available for anyone to inspect and modify. This makes it a great tool for learning about how hacking tools work and how to develop your own.</p>
+</li>
+<li>
+<p>It is customizable: The Flipper Zero is highly customizable, with a variety of add-on boards and accessories available. This makes it a great tool for learning about hardware and electronics, and for developing your own custom hacking tools.</p>
+</li>
+</ul>
+<p>The Flipper Zero has gained popularity not only for its hacking capabilities but also as an educational tool for exploring hardware knowledge.</p>
+<p>Apart from its specific features tailored for hacking activities, the Flipper Zero&rsquo;s appeal among enthusiasts extends to its role in hardware learning. Its versatility allows users to delve into the intricacies of hardware components, gaining hands-on experience with various electronic systems.</p>
+<p>The device&rsquo;s educational value stems from its user-friendly interface and extensive documentation, making it accessible to beginners and experienced tinkerers alike. The Flipper Zero&rsquo;s open-source nature fosters a vibrant community of developers who continuously create and share new tools and resources, further enriching the learning experience.</p>
+<h1 id="-first-steps">🏁 First Steps</h1>
+<p>Experimenting with the tools that come with the official software is definitely a great start, but I also want to explore adding new modules to the GPIO. To experiment, I installed a community-developed firmware.</p>
+<h2 id="installing-flipper-zero-firmware-update">Installing Flipper Zero Firmware Update</h2>
+<p>First, we need to download the software that communicates with the Flipper Zero via USB. To do this, download from <a href="https://flipperzero.one/update" target="_blank" rel="noopener noreffer ">flipperzero.one</a>. I&rsquo;m using Linux, the chosen version should be the Linux one. It is also possible to install it on an iPhone or an Android smartphone (via Bluetooth).</p>
+<p><figure><a class="lightgallery" href="/2023/flipperzero/downloadFileUpdater.png" title="File Download" data-thumbnail="/2023/flipperzero/downloadFileUpdater.png" data-sub-html="<h2>File Download</h2><p>File Download</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2023/flipperzero/downloadFileUpdater.png"
+            data-srcset="/2023/flipperzero/downloadFileUpdater.png, /2023/flipperzero/downloadFileUpdater.png 1.5x, /2023/flipperzero/downloadFileUpdater.png 2x"
+            data-sizes="auto"
+            alt="/2023/flipperzero/downloadFileUpdater.png" width="745" height="46" />
+    </a><figcaption class="image-caption">File Download</figcaption>
+    </figure></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mv qFlipper-x86_64-1.3.2.AppImage /usr/bin/flipper
+</span></span><span class="line"><span class="cl">chmod +x /usr/bin/flipper
+</span></span><span class="line"><span class="cl">which flipper
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>To start the program, superuser permission <code>sudo</code> may be necessary depending on the circumstances.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo flipper
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="/2023/flipperzero/interfaceUpdater.png" title="Interface" data-thumbnail="/2023/flipperzero/interfaceUpdater.png" data-sub-html="<h2>Interface</h2><p>Interface</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2023/flipperzero/interfaceUpdater.png"
+            data-srcset="/2023/flipperzero/interfaceUpdater.png, /2023/flipperzero/interfaceUpdater.png 1.5x, /2023/flipperzero/interfaceUpdater.png 2x"
+            data-sizes="auto"
+            alt="/2023/flipperzero/interfaceUpdater.png" width="862" height="532" />
+    </a><figcaption class="image-caption">Interface</figcaption>
+    </figure></p>
+<h2 id="installing-new-firmware">Installing New Firmware</h2>
+<p>The provided firmware is sufficient for any type of study, but let&rsquo;s install a firmware developed by the Flipper Zero community that offers many more tools and plugins.</p>
+<p>There are several forks of the Flipper Zero firmware. Here are some examples:</p>
+<table>
+<thead>
+<tr>
+<th>Repository Name</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Flipper-XFW/Xtreme-Firmware" target="_blank" rel="noopener noreffer ">Xtreme-Firmware</a></td>
+<td>This firmware is a complete overhaul of the Official Firmware, and also features lots of awesome code-bits from Unleashed.</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/DarkFlippers/unleashed-firmware" target="_blank" rel="noopener noreffer ">Unleashed-Firmware</a></td>
+<td>Most stable custom firmware focused on new features and improvements of original firmware components, with almost no UI changes.</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/RogueMaster/flipperzero-firmware-wPlugins" target="_blank" rel="noopener noreffer ">RogueMaster</a></td>
+<td>This firmware is a fork of Unleashed and the main Flipper Devices FW! We are NOT paywalled. I will try to keep active development and updates from both in this build along with any other projects that can be found to be useful to the community. I try to keep this FW build the most cutting edge with updates from both and updates from nearly all active community projects. See the RM Games and Plugins for a list of most of those projects.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>To get started, we need to download the firmware. In this case, I will use <a href="https://github.com/DarkFlippers/unleashed-firmware" target="_blank" rel="noopener noreffer ">unleashed-firmware</a>. I will download version <code>flipper-z-f7-update-unlshd-063.tgz</code>.</p>
+<p><figure><a class="lightgallery" href="/2023/flipperzero/flipper-z-f7-update-unlshd.png" title="Unleashed Firmeware" data-thumbnail="/2023/flipperzero/flipper-z-f7-update-unlshd.png" data-sub-html="<h2>unleashed-firmware</h2><p>Unleashed Firmeware</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2023/flipperzero/flipper-z-f7-update-unlshd.png"
+            data-srcset="/2023/flipperzero/flipper-z-f7-update-unlshd.png, /2023/flipperzero/flipper-z-f7-update-unlshd.png 1.5x, /2023/flipperzero/flipper-z-f7-update-unlshd.png 2x"
+            data-sizes="auto"
+            alt="/2023/flipperzero/flipper-z-f7-update-unlshd.png" width="1563" height="585" />
+    </a><figcaption class="image-caption">unleashed-firmware</figcaption>
+    </figure></p>
+<p>With the firmware downloaded, simply access the firmware update option, click on <code>Install from file</code> and select the file <code>flipper-z-f7-update-unlshd-063.tgz</code>, ensuring that the Flipper Zero is already connected to the computer.</p>
+<h1 id="-lets-get-started">➡️ Let&rsquo;s Get Started</h1>
+<p>With everything set up, let&rsquo;s get started!</p>
+<h3 id="nfc">NFC</h3>
+<p>The first attempt I made was to read an NFC card.</p>
+<p>NFC (Near Field Communication) is a short-range wireless technology that allows devices to exchange data quickly and easily. It works by creating a magnetic field around two devices when they are brought close together, typically within 10 centimeters. This magnetic field can then be used to transmit data between the two devices.</p>
+<p><figure><a class="lightgallery" href="/2023/flipperzero/readNFC.png" title="NFC" data-thumbnail="/2023/flipperzero/readNFC.png" data-sub-html="<h2>Read an real NFC card</h2><p>NFC</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2023/flipperzero/readNFC.png"
+            data-srcset="/2023/flipperzero/readNFC.png, /2023/flipperzero/readNFC.png 1.5x, /2023/flipperzero/readNFC.png 2x"
+            data-sizes="auto"
+            alt="/2023/flipperzero/readNFC.png" width="817" height="430" />
+    </a><figcaption class="image-caption">Read an real NFC card</figcaption>
+    </figure></p>
+<p>NFC is used in a variety of applications, including:</p>
+<ul>
+<li>Mobile payments</li>
+<li>Transit passes</li>
+<li>Access control</li>
+<li>Data sharing</li>
+</ul>
+<p>NFC is a versatile and convenient technology that is becoming increasingly common in a variety of applications.
+Overall, NFC is a powerful and versatile technology that has a wide range of potential applications.</p>
+<h1 id="-building-gpio-modules">🔨 Building GPIO modules</h1>
+<p>The development of GPIO modules for the Flipper Zero is a creative endeavor that involves designing, creating, and implementing novel functionalities. This process encompasses a wide range of activities, from devising innovative attacks to crafting new hardware boards and exploring diverse applications. It encourages ingenuity in utilizing the GPIO (General Purpose Input/Output) capabilities of the Flipper Zero for both practical and experimental purposes, expanding the device&rsquo;s capabilities and fostering a community-driven approach to innovation.</p>
+<hr>
+<h2 id="nrf24l01">NRF24L01</h2>
+<p><figure><a class="lightgallery" href="/2023/flipperzero/NRF24L01_PA_LNA.png" title="NRF24L01" data-thumbnail="/2023/flipperzero/NRF24L01_PA_LNA.png" data-sub-html="<h2>NRF24L01&#43;PA&#43;LNA</h2><p>NRF24L01</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2023/flipperzero/NRF24L01_PA_LNA.png"
+            data-srcset="/2023/flipperzero/NRF24L01_PA_LNA.png, /2023/flipperzero/NRF24L01_PA_LNA.png 1.5x, /2023/flipperzero/NRF24L01_PA_LNA.png 2x"
+            data-sizes="auto"
+            alt="/2023/flipperzero/NRF24L01_PA_LNA.png" width="564" height="302" />
+    </a><figcaption class="image-caption">NRF24L01+PA+LNA</figcaption>
+    </figure></p>
+<p>The nRF24L01+PA+LNA 2.4GHz RF Wireless Modules are RF transceiver modules that can be used for wireless communications at up to 1100 meters. It&rsquo;s important to note that this module exclusively operates in the 2.4GHz band at data rates of 250Kbps, 1Mbps or 2Mbps. Max operating current is &lt; 115mA.</p>
+<p>The Flipper Zero can communicate with devices at greater distances, which can be useful for applications such as:</p>
+<ul>
+<li>Remote control of remote devices</li>
+<li>Data transmission between devices</li>
+<li>Creating wireless sensor networks</li>
+</ul>
+<p>The NRF24L01 can be beneficial in the Flipper Zero for:</p>
+<ul>
+<li>Improving connectivity in areas with potential interference</li>
+<li>Enabling long-range communication with low-power consumption</li>
+<li>Facilitating seamless communication with compatible devices at lower frequencies (below 1GHz)</li>
+<li>Enhancing overall performance for applications that demand extended wireless reach and robust connections.</li>
+</ul>
+<h3 id="connection-with-flipper-zero">Connection with Flipper Zero</h3>
+<p>Material:</p>
+<ul>
+<li>1x PCB Board</li>
+<li>1x nRF24L01 Board</li>
+<li>1x DC/DC Buck Converter (1.8V, 3V, 3.7V, or 5V to 3.3V)</li>
+</ul>
+<p>In addition to these materials, you will also need some basic soldering equipment, such as a soldering iron, solder, and flux.</p>
+<h4 id="connect-nrf24l01-board-with-flipper-zero">Connect NRF24L01 board with Flipper Zero</h4>
+<table>
+<thead>
+<tr>
+<th>Flipper Zero</th>
+<th>NRF24L01</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A7</td>
+<td>MOSI</td>
+</tr>
+<tr>
+<td>A6</td>
+<td>MISO</td>
+</tr>
+<tr>
+<td>A4</td>
+<td>CSN</td>
+</tr>
+<tr>
+<td>B3</td>
+<td>SCK</td>
+</tr>
+<tr>
+<td>B2</td>
+<td>CE</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>3V3</td>
+<td>VCC</td>
+</tr>
+<tr>
+<td>Left disconnected</td>
+<td>IRQ</td>
+</tr>
+</tbody>
+</table>
+<p>This is my final testing board for Sub GHz with the Flipper Zero.</p>
+<p><figure><a class="lightgallery" href="/2023/flipperzero/NRF24L01Board.jpg" title="NRF24L01 Board" data-thumbnail="/2023/flipperzero/NRF24L01Board.jpg" data-sub-html="<h2>NRF24L01 Board</h2><p>NRF24L01 Board</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2023/flipperzero/NRF24L01Board.jpg"
+            data-srcset="/2023/flipperzero/NRF24L01Board.jpg, /2023/flipperzero/NRF24L01Board.jpg 1.5x, /2023/flipperzero/NRF24L01Board.jpg 2x"
+            data-sizes="auto"
+            alt="/2023/flipperzero/NRF24L01Board.jpg" width="1280" height="1280" />
+    </a><figcaption class="image-caption">NRF24L01 Board</figcaption>
+    </figure></p>
+<p><a href="https://github.com/UberGuidoZ/Flipper/blob/main/GPIO/ReadMe.md#nrf24l01--mousejack-pinout---8-pin" target="_blank" rel="noopener noreffer ">Playground Information</a></p>
+<p><figure><a class="lightgallery" href="/2023/flipperzero/fz&#43;nf.jpg" title="Flipper Zero and NRF24L01 Board" data-thumbnail="/2023/flipperzero/fz&#43;nf.jpg" data-sub-html="<h2>Flipper Zero and NRF24L01 Board</h2><p>Flipper Zero and NRF24L01 Board</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2023/flipperzero/fz&#43;nf.jpg"
+            data-srcset="/2023/flipperzero/fz&#43;nf.jpg, /2023/flipperzero/fz&#43;nf.jpg 1.5x, /2023/flipperzero/fz&#43;nf.jpg 2x"
+            data-sizes="auto"
+            alt="/2023/flipperzero/fz&#43;nf.jpg" width="1280" height="1280" />
+    </a><figcaption class="image-caption">Flipper Zero and NRF24L01 Board</figcaption>
+    </figure></p>
+<hr>
+<h2 id="esp32-wroom">ESP32-WROOM</h2>
+<p>The ESP32-WROOM is a versatile and powerful microcontroller module. A dual-core microcontroller with integrated Wi-Fi and Bluetooth capabilities. This tiny yet potent module serves as a playground for hackers, security researchers, and tinkerers seeking to explore the world of hardware hacking and IoT security.</p>
+<p><figure><a class="lightgallery" href="/2023/flipperzero/ESP32-WROOM-32U.jpeg" title="ESP32-WROOM-32U" data-thumbnail="/2023/flipperzero/ESP32-WROOM-32U.jpeg" data-sub-html="<h2>ESP32-WROOM-32U</h2><p>ESP32-WROOM-32U</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2023/flipperzero/ESP32-WROOM-32U.jpeg"
+            data-srcset="/2023/flipperzero/ESP32-WROOM-32U.jpeg, /2023/flipperzero/ESP32-WROOM-32U.jpeg 1.5x, /2023/flipperzero/ESP32-WROOM-32U.jpeg 2x"
+            data-sizes="auto"
+            alt="/2023/flipperzero/ESP32-WROOM-32U.jpeg" width="604" height="413" />
+    </a><figcaption class="image-caption">ESP32-WROOM-32U</figcaption>
+    </figure></p>
+<ul>
+<li>
+<p><code>Marauder Attacks</code>: WiFi attacks via the ESP32 <a href="https://github.com/justcallmekoko/ESP32Marauder" target="_blank" rel="noopener noreffer ">Marauder</a> involve sending crafted WiFi packets for specific goals. Possible attacks include &ldquo;Beacon Spam List&rdquo;, &ldquo;Beacon Spam Random&rdquo; and &ldquo;Rick Roll Beacon&rdquo;. These tactics aim to disrupt network discovery and create confusion among nearby devices. Caution is crucial, as unauthorized use of such techniques can be unethical and illegal.</p>
+</li>
+<li>
+<p><code>Captive Portals</code>: Hackers can create captive portals with the ESP32 to trick users into connecting to a rogue Wi-Fi network. Once connected, attackers can control the network traffic and potentially launch various exploits.</p>
+</li>
+<li>
+<p><code>IoT Device Exploitation</code>: As the IoT ecosystem continues to grow, the ESP32 can be used to audit and assess the security of IoT devices. It can help identify vulnerabilities in smart home devices, industrial systems, and more.</p>
+</li>
+<li>
+<p><code>Wireless Sniffing and Packet Analysis</code>: The module&rsquo;s Wi-Fi capabilities make it an excellent tool for monitoring and analyzing wireless networks. It can be used to capture packets, discover network vulnerabilities, and perform Wi-Fi penetration testing.</p>
+</li>
+</ul>
+<h3 id="connection-with-flipper-zero-1">Connection with Flipper Zero</h3>
+<p>Material:</p>
+<ul>
+<li>1x PCB Board</li>
+<li>1x ESP32-WROOM-32U</li>
+<li>1x Micro SD Card 8GB</li>
+<li>1x Micro SD TF Module</li>
+</ul>
+<p>In addition to these materials, you will also need some basic soldering equipment, such as a soldering iron, solder, and flux.</p>
+<h4 id="connect-esp32-wroom-32u-to-flipper-zero">Connect ESP32-WROOM-32U to Flipper Zero</h4>
+<table>
+<thead>
+<tr>
+<th>Flipper Zero</th>
+<th>ESP32-WROOM-32U</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TX</td>
+<td>RX</td>
+</tr>
+<tr>
+<td>RX</td>
+<td>TX</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>5V</td>
+<td>5V</td>
+</tr>
+</tbody>
+</table>
+<h4 id="connect-micro-sd-tf-module-to-esp32-wroom-32u">Connect Micro SD TF Module to ESP32-WROOM-32U</h4>
+<p>To fully utilize the Marauder project&rsquo;s potential, the integration of a card reader is crucial for enabling network traffic capture (.pcap) and Captive Portal creation. This enhancement will transform the Marauder into a comprehensive network security and penetration testing tool.</p>
+<table>
+<thead>
+<tr>
+<th>Micro SD TF Module</th>
+<th>ESP32-WROOM-32U</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>VCC</td>
+<td>VCC or 3v3</td>
+</tr>
+<tr>
+<td>MISO</td>
+<td>C19</td>
+</tr>
+<tr>
+<td>MOSI</td>
+<td>D23</td>
+</tr>
+<tr>
+<td>SCK</td>
+<td>D18</td>
+</tr>
+<tr>
+<td>CS</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+<p>This is my final testing board for Wi-Fi with the Flipper Zero.</p>
+<p><figure><a class="lightgallery" href="/2023/flipperzero/esp32Board.jpg" title="ESP32 Board" data-thumbnail="/2023/flipperzero/esp32Board.jpg" data-sub-html="<h2>ESP32 Board</h2><p>ESP32 Board</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2023/flipperzero/esp32Board.jpg"
+            data-srcset="/2023/flipperzero/esp32Board.jpg, /2023/flipperzero/esp32Board.jpg 1.5x, /2023/flipperzero/esp32Board.jpg 2x"
+            data-sizes="auto"
+            alt="/2023/flipperzero/esp32Board.jpg" width="1280" height="1280" />
+    </a><figcaption class="image-caption">ESP32 Board</figcaption>
+    </figure></p>
+<p><a href="https://github.com/UberGuidoZ/Flipper/blob/main/GPIO/ReadMe.md#esp32-wroom" target="_blank" rel="noopener noreffer ">Playground Information</a></p>
+<p><figure><a class="lightgallery" href="/2023/flipperzero/fz&#43;wifi.jpg" title="Marauder" data-thumbnail="/2023/flipperzero/fz&#43;wifi.jpg" data-sub-html="<h2>Marauder</h2><p>Marauder</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2023/flipperzero/fz&#43;wifi.jpg"
+            data-srcset="/2023/flipperzero/fz&#43;wifi.jpg, /2023/flipperzero/fz&#43;wifi.jpg 1.5x, /2023/flipperzero/fz&#43;wifi.jpg 2x"
+            data-sizes="auto"
+            alt="/2023/flipperzero/fz&#43;wifi.jpg" width="1280" height="1280" />
+    </a><figcaption class="image-caption">Marauder</figcaption>
+    </figure></p>
+<h4 id="install-marauder-on-esp32-wroom">Install Marauder on ESP32-WROOM</h4>
+<p>I used the <a href="https://github.com/SkeletonMan03/FZEasyMarauderFlash" target="_blank" rel="noopener noreffer ">Easy Flipper Zero ESP32 Flash</a> to install Marauder on the ESP32-WROOM. There are other ways to do it, but this one was the easiest for me.</p>
+<hr>
+<h1 id="-first-plugin">🤞 First Plugin</h1>
+<p>The first app is always the hardest, but it&rsquo;s also where we learn the most about C programming with Flipper Zero libraries. My first app was a simple echo. In it, I learned:</p>
+<ul>
+<li>How to create a simple project</li>
+<li>How to install the devkit</li>
+<li>How to compile</li>
+<li>How to compile and upload</li>
+</ul>
+<p><figure><a class="lightgallery" href="/2023/flipperzero/app.fap.jpeg" title="First App" data-thumbnail="/2023/flipperzero/app.fap.jpeg" data-sub-html="<h2>First App</h2><p>First App</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/2023/flipperzero/app.fap.jpeg"
+            data-srcset="/2023/flipperzero/app.fap.jpeg, /2023/flipperzero/app.fap.jpeg 1.5x, /2023/flipperzero/app.fap.jpeg 2x"
+            data-sizes="auto"
+            alt="/2023/flipperzero/app.fap.jpeg" width="1280" height="658" />
+    </a><figcaption class="image-caption">First App</figcaption>
+    </figure></p>
+<hr>
+<p>That&rsquo;s All! Thanks!<br>
+Happy hacking &#x1f42c;</p>
+<center>
+  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXh6ODBhejdqdGVldWRldnVlNm55dnMyaHl6cWlkNG54YmZ5MG1qcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ZfK4cXKJTTay1Ava29/giphy.gif" width="60%" height="60%" class="center"/>
+</center>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://flipperzero.one/update" target="_blank" rel="noopener noreffer ">https://flipperzero.one</a></li>
+<li><a href="https://github.com/justcallmekoko/ESP32Marauder/wiki/faq#what-is-marauder" target="_blank" rel="noopener noreffer ">https://github.com/justcallmekoko/ESP32Marauder</a></li>
+<li><a href="https://github.com/UberGuidoZ/Flipper" target="_blank" rel="noopener noreffer ">https://github.com/UberGuidoZ/Flipper</a></li>
+<li><a href="https://github.com/SkeletonMan03/FZEasyMarauderFlash" target="_blank" rel="noopener noreffer ">https://github.com/SkeletonMan03/FZEasyMarauderFlash</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on Nov 21, 2023</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/flipperzero/">FlipperZero</a>,&nbsp;<a href="/tags/hands-on/">Hands-On</a>,&nbsp;<a href="/tags/esp32-wroom/">ESP32-WROOM</a>,&nbsp;<a href="/tags/nrf24l01/">NRF24L01</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2023/phpinfo/" class="prev" rel="prev" title="PHP &lt;= 7.3 Local File Inclusion with RCE (PoC)"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>PHP <= 7.3 Local File Inclusion with RCE (PoC)</a>
+            <a href="/2025/lanturtle-vpn/" class="next" rel="next" title="DIY LAN Turtle - Building a Stealth Remote Access Device">DIY LAN Turtle - Building a Stealth Remote Access Device<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.123.7">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.f1b10c54ef8e7ea0c938baba89a68e47962cb91f87edfcf0ae7abf0ec7bbb510e5d980a2b5a69686d7a44eae747183e3ed5cd960ed6fe66552c947e6fca4ff67.js" integrity="sha512-8bEMVO+OfqDJOLq6iaaOR5YsuR+H7fzwrnq/Dse7tRDl2YCitaaWhtekTq50cYPj7VzZYO1v5mVSyUfm/KT/Zw=="></script></body>
+</html>
