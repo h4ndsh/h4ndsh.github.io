@@ -1,10 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Security - Tag - H4ndSH</title>
-        <link>https://h4ndsh.github.io/tags/security/</link>
-        <description>Security - Tag - H4ndSH</description>
+        <title>Remote Access - Category - H4ndSH</title>
+        <link>https://h4ndsh.github.io/categories/remote-access/</link>
+        <description>Remote Access - Category - H4ndSH</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>h4ndsh@outlook.com (h4ndsh)</managingEditor>
-            <webMaster>h4ndsh@outlook.com (h4ndsh)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 04 Feb 2025 10:46:05 &#43;0100</lastBuildDate><atom:link href="https://h4ndsh.github.io/tags/security/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>h4ndsh@outlook.com (h4ndsh)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 04 Feb 2025 10:46:05 &#43;0100</lastBuildDate><atom:link href="https://h4ndsh.github.io/categories/remote-access/" rel="self" type="application/rss+xml" /><item>
     <title>DIY LAN Turtle - Building a Stealth Remote Access Device</title>
     <link>https://h4ndsh.github.io/2025/lanturtle-vpn/</link>
     <pubDate>Tue, 04 Feb 2025 10:46:05 &#43;0100</pubDate>
