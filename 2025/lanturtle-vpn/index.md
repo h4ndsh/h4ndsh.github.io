@@ -39,11 +39,9 @@ After researching various options, I chose the [Luckfox Pico Max RV1106](https:/
 | **Component**         | **Details**                                                                 |
 |-----------------------|-----------------------------------------------------------------------------|
 | **Processor**         | Cortex A7 @ 1.2GHz                                                         |
-| **NPU**               | **Pro:** 0.5 TOPS, supports int4, int8, and int16                         |
-|                       | **Max:** 1 TOPS, supports int4, int8, and int16                           |
+| **NPU**               | **Max:** 1 TOPS, supports int4, int8, and int16                           |
 | **ISP**               | Input 5M @30fps (Max)                                                     |
-| **Memory**            | **Pro:** 128MB DDR2                                                       |
-|                       | **Max:** 256MB DDR2                                                       |
+| **Memory**            | **Max:** 256MB DDR2                                                       |
 | **USB**               | USB 2.0 Host/Device                                                       |
 | **Camera**            | MIPI CSI 2-lane                                                           |
 | **GPIO**              | 26 × GPIO pins                                                            |
@@ -136,7 +134,7 @@ For remote access, I chose [Twingate](https://www.twingate.com) for its excellen
 2. Created a new Network [(Network > Remote Networks > + Remote Network - select "other")](https://<name>.twingate.com/networks?sortBy=name)
 3. Added a Connector (Network > "network name" > + Add Connector)
 4. Installed the Connector on my Luckfox Pico ("Inside Connector" > Linux > Generate Tokens > Copy Command)
-5. SSH'd into the Luckfox Pico and ran:
+5. SSH'd into the Luckfox Pico and run:
 
 ```bash
 curl "https://binaries.twingate.com/connector/setup.sh" | sudo TWINGATE_ACCESS_TOKEN="" TWINGATE_REFRESH_TOKEN="" TWINGATE_NETWORK="<name>" TWINGATE_LABEL_DEPLOYED_BY="linux" bash
@@ -358,8 +356,6 @@ if __name__ == "__main__":
 To run the script at startup, I added the following entry to crontab:
 
 ```bash
-crontab -e
-
 @reboot /usr/bin/python3 /home/pico/scripts/twingate-updater.py >> /home/pico/scripts/twingate-updater.log 2>&1
 ```
 

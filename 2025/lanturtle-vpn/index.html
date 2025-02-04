@@ -32,7 +32,7 @@
                             "url": "https:\/\/h4ndsh.github.io\/2025\/lanturtle-vpn\/featured-image.png",
                             "width":  890 ,
                             "height":  628 
-                        }],"genre": "posts","keywords": "Hardware, Security, Remote Access","wordcount":  1777 ,
+                        }],"genre": "posts","keywords": "Hardware, Security, Remote Access","wordcount":  1762 ,
         "url": "https:\/\/h4ndsh.github.io\/2025\/lanturtle-vpn\/","datePublished": "2025-02-04T10:46:05+01:00","dateModified": "2025-02-04T10:46:05+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -103,7 +103,7 @@
     </div><main class="main">
                 <div class="container"><article class="page single"><h1 class="single-title animate__animated animate__flipInX">DIY LAN Turtle - Building a Stealth Remote Access Device</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://h4ndsh.github.io" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>h4ndsh</a></span>&nbsp;<span class="post-category">included in <a href="/categories/pentest/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Pentest</a>&nbsp;<a href="/categories/remote-access/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Remote Access</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="Feb 4, 2025">Feb 4, 2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1777 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="Feb 4, 2025">Feb 4, 2025</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1762 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;9 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -147,10 +147,6 @@ This is just an example of usage. My goal is not to connect to locations that co
 </tr>
 <tr>
 <td><strong>NPU</strong></td>
-<td><strong>Pro:</strong> 0.5 TOPS, supports int4, int8, and int16</td>
-</tr>
-<tr>
-<td></td>
 <td><strong>Max:</strong> 1 TOPS, supports int4, int8, and int16</td>
 </tr>
 <tr>
@@ -159,10 +155,6 @@ This is just an example of usage. My goal is not to connect to locations that co
 </tr>
 <tr>
 <td><strong>Memory</strong></td>
-<td><strong>Pro:</strong> 128MB DDR2</td>
-</tr>
-<tr>
-<td></td>
 <td><strong>Max:</strong> 256MB DDR2</td>
 </tr>
 <tr>
@@ -284,7 +276,7 @@ This is just an example of usage. My goal is not to connect to locations that co
 <li>Created a new Network <a href="https://%3cname%3e.twingate.com/networks?sortBy=name" target="_blank" rel="noopener noreffer ">(Network &gt; Remote Networks &gt; + Remote Network - select &ldquo;other&rdquo;)</a></li>
 <li>Added a Connector (Network &gt; &ldquo;network name&rdquo; &gt; + Add Connector)</li>
 <li>Installed the Connector on my Luckfox Pico (&ldquo;Inside Connector&rdquo; &gt; Linux &gt; Generate Tokens &gt; Copy Command)</li>
-<li>SSH&rsquo;d into the Luckfox Pico and ran:</li>
+<li>SSH&rsquo;d into the Luckfox Pico and run:</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -700,13 +692,9 @@ This is just an example of usage. My goal is not to connect to locations that co
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">crontab -e
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">@reboot /usr/bin/python3 /home/pico/scripts/twingate-updater.py &gt;&gt; /home/pico/scripts/twingate-updater.log 2&gt;<span class="p">&amp;</span><span class="m">1</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">@reboot /usr/bin/python3 /home/pico/scripts/twingate-updater.py &gt;&gt; /home/pico/scripts/twingate-updater.log 2&gt;<span class="p">&amp;</span><span class="m">1</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>If necessary, adjust the file and log paths accordingly.</p>
