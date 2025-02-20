@@ -27,7 +27,7 @@ My goal was simple: I wanted reliable remote access to local networks without th
 # Hardware Selection
 
 
-After researching various options, I chose the [Luckfox Pico Max RV1106](https://www.luckfox.com/EN-Luckfox-Pico-Max) as the core of my project. This compact device offers an impressive set of features at a remarkably affordable price point.
+After researching various options, I chose the [Luckfox Pico Max RV1106](https://www.luckfox.com/EN-Luckfox-Pico-Pro) as the core of my project. This compact device offers an impressive set of features at a remarkably affordable price point.
 
 
 <center>
