@@ -65,7 +65,7 @@ For those interested in trying different hardware, here are some alternatives I 
 # 🛍️ Shopping List
 
 Here's what I used for this project:
-- [Luckfox Pico Max RV1106](https://www.luckfox.com/EN-Luckfox-Pico-Max) - €18
+- [Luckfox Pico Max RV1106](https://www.luckfox.com/EN-Luckfox-Pico-Pro) - €18
 - 64GB microSD card - €10
 - microSD to USB adapter - €2
 
