@@ -1,87 +1,87 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Tags - Tag - H4ndSH</title>
-        <link>https://h4ndsh.github.io/tags/</link>
+        <link>http://localhost:1313/tags/</link>
         <description>Tags - Tag - H4ndSH</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>h4ndsh@outlook.com (h4ndsh)</managingEditor>
-            <webMaster>h4ndsh@outlook.com (h4ndsh)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 04 Feb 2025 10:46:05 &#43;0100</lastBuildDate><atom:link href="https://h4ndsh.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>h4ndsh@outlook.com (h4ndsh)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 04 Feb 2025 10:46:05 &#43;0100</lastBuildDate><atom:link href="http://localhost:1313/tags/" rel="self" type="application/rss+xml" /><item>
     <title>Hardware</title>
-    <link>https://h4ndsh.github.io/tags/hardware/</link>
+    <link>http://localhost:1313/tags/hardware/</link>
     <pubDate>Tue, 04 Feb 2025 10:46:05 &#43;0100</pubDate>
     <author>h4ndsh</author>
-    <guid>https://h4ndsh.github.io/tags/hardware/</guid>
+    <guid>http://localhost:1313/tags/hardware/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Remote Access</title>
-    <link>https://h4ndsh.github.io/tags/remote-access/</link>
+    <link>http://localhost:1313/tags/remote-access/</link>
     <pubDate>Tue, 04 Feb 2025 10:46:05 &#43;0100</pubDate>
     <author>h4ndsh</author>
-    <guid>https://h4ndsh.github.io/tags/remote-access/</guid>
+    <guid>http://localhost:1313/tags/remote-access/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Security</title>
-    <link>https://h4ndsh.github.io/tags/security/</link>
+    <link>http://localhost:1313/tags/security/</link>
     <pubDate>Tue, 04 Feb 2025 10:46:05 &#43;0100</pubDate>
     <author>h4ndsh</author>
-    <guid>https://h4ndsh.github.io/tags/security/</guid>
+    <guid>http://localhost:1313/tags/security/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>ESP32-WROOM</title>
-    <link>https://h4ndsh.github.io/tags/esp32-wroom/</link>
+    <link>http://localhost:1313/tags/esp32-wroom/</link>
     <pubDate>Sat, 21 Oct 2023 00:00:00 &#43;0000</pubDate>
     <author>h4ndsh</author>
-    <guid>https://h4ndsh.github.io/tags/esp32-wroom/</guid>
+    <guid>http://localhost:1313/tags/esp32-wroom/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>FlipperZero</title>
-    <link>https://h4ndsh.github.io/tags/flipperzero/</link>
+    <link>http://localhost:1313/tags/flipperzero/</link>
     <pubDate>Sat, 21 Oct 2023 00:00:00 &#43;0000</pubDate>
     <author>h4ndsh</author>
-    <guid>https://h4ndsh.github.io/tags/flipperzero/</guid>
+    <guid>http://localhost:1313/tags/flipperzero/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Hands-On</title>
-    <link>https://h4ndsh.github.io/tags/hands-on/</link>
+    <link>http://localhost:1313/tags/hands-on/</link>
     <pubDate>Sat, 21 Oct 2023 00:00:00 &#43;0000</pubDate>
     <author>h4ndsh</author>
-    <guid>https://h4ndsh.github.io/tags/hands-on/</guid>
+    <guid>http://localhost:1313/tags/hands-on/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>NRF24L01</title>
-    <link>https://h4ndsh.github.io/tags/nrf24l01/</link>
+    <link>http://localhost:1313/tags/nrf24l01/</link>
     <pubDate>Sat, 21 Oct 2023 00:00:00 &#43;0000</pubDate>
     <author>h4ndsh</author>
-    <guid>https://h4ndsh.github.io/tags/nrf24l01/</guid>
+    <guid>http://localhost:1313/tags/nrf24l01/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Php7</title>
-    <link>https://h4ndsh.github.io/tags/php7/</link>
+    <link>http://localhost:1313/tags/php7/</link>
     <pubDate>Thu, 12 Oct 2023 00:00:00 &#43;0000</pubDate>
     <author>h4ndsh</author>
-    <guid>https://h4ndsh.github.io/tags/php7/</guid>
+    <guid>http://localhost:1313/tags/php7/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Phpinfo</title>
-    <link>https://h4ndsh.github.io/tags/phpinfo/</link>
+    <link>http://localhost:1313/tags/phpinfo/</link>
     <pubDate>Thu, 12 Oct 2023 00:00:00 &#43;0000</pubDate>
     <author>h4ndsh</author>
-    <guid>https://h4ndsh.github.io/tags/phpinfo/</guid>
+    <guid>http://localhost:1313/tags/phpinfo/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Ethical Hacking</title>
-    <link>https://h4ndsh.github.io/tags/ethical-hacking/</link>
+    <link>http://localhost:1313/tags/ethical-hacking/</link>
     <pubDate>Thu, 29 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>h4ndsh</author>
-    <guid>https://h4ndsh.github.io/tags/ethical-hacking/</guid>
+    <guid>http://localhost:1313/tags/ethical-hacking/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>
