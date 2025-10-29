@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Phishing - Category - H4ndSH</title>
-        <link>http://localhost:1313/categories/phishing/</link>
+        <link>https://h4ndsh.github.io/categories/phishing/</link>
         <description>Phishing - Category - H4ndSH</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>h4ndsh@outlook.com (h4ndsh)</managingEditor>
-            <webMaster>h4ndsh@outlook.com (h4ndsh)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 29 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/categories/phishing/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>h4ndsh@outlook.com (h4ndsh)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 29 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://h4ndsh.github.io/categories/phishing/" rel="self" type="application/rss+xml" /><item>
     <title>Saphety Phishing Campaign</title>
-    <link>http://localhost:1313/2023/saphety/</link>
+    <link>https://h4ndsh.github.io/2023/saphety/</link>
     <pubDate>Thu, 29 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>h4ndsh</author>
-    <guid>http://localhost:1313/2023/saphety/</guid>
+    <guid>https://h4ndsh.github.io/2023/saphety/</guid>
     <description><![CDATA[This article is about a phishing campaign that my company received. The campaign targeted Saphety, a Portuguese company providing electronic invoicing services. When my enterprise received the phishing email, I decided to investigate further. In this article, I will share my findings.
 Summary Summary What is Saphety? The phishing email Website analysis Decoding the encoded strings Form analysis POST method analysis Server analysis What is Saphety? Saphety is a Portuguese company that offers electronic invoicing services.]]></description>
 </item>

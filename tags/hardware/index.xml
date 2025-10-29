@@ -1,15 +1,24 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Hardware - Tag - H4ndSH</title>
-        <link>http://localhost:1313/tags/hardware/</link>
+        <link>https://h4ndsh.github.io/tags/hardware/</link>
         <description>Hardware - Tag - H4ndSH</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>h4ndsh@outlook.com (h4ndsh)</managingEditor>
-            <webMaster>h4ndsh@outlook.com (h4ndsh)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 04 Feb 2025 10:46:05 &#43;0100</lastBuildDate><atom:link href="http://localhost:1313/tags/hardware/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>h4ndsh@outlook.com (h4ndsh)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 01 Sep 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://h4ndsh.github.io/tags/hardware/" rel="self" type="application/rss+xml" /><item>
+    <title>Building a local AI server with multiple GPUs using MCP and Ollama</title>
+    <link>https://h4ndsh.github.io/2025/ai-server/</link>
+    <pubDate>Mon, 01 Sep 2025 00:00:00 &#43;0000</pubDate>
+    <author>h4ndsh</author>
+    <guid>https://h4ndsh.github.io/2025/ai-server/</guid>
+    <description><![CDATA[Hardware Components Here is a summary of the components used in this build. Each component was chosen to provide a balance of performance, stability, and scalability for AI workloads.
+Component Model Quantity Motherboard ASUS Pro WS WRX80E-SAGE SE 1 CPU AMD Ryzen Threadripper PRO 5975WX 1 RAM 128GB Samsung DDR4-3200 ECC 4x32GB NVMe SSD Samsung 990 Pro 1TB 1 Enterprise SSD Kingston DC600M 1.92TB 1 Case Silverstone SST-RM51 1 PSU FSP CANNON PRO 2500W 1 GPU NVIDIA RTX 5090 32GB 2 CPU Cooler Noctua NH-U9 TR4-SP3 1 A picture of the server components Montagem do PC software]]></description>
+</item>
+<item>
     <title>DIY LAN Turtle - Building a Stealth Remote Access Device</title>
-    <link>http://localhost:1313/2025/lanturtle-vpn/</link>
+    <link>https://h4ndsh.github.io/2025/lanturtle-vpn/</link>
     <pubDate>Tue, 04 Feb 2025 10:46:05 &#43;0100</pubDate>
     <author>h4ndsh</author>
-    <guid>http://localhost:1313/2025/lanturtle-vpn/</guid>
+    <guid>https://h4ndsh.github.io/2025/lanturtle-vpn/</guid>
     <description><![CDATA[In this post, I share my experience building a DIY stealth remote access device using the Luckfox Pico Max RV1106. Inspired by the commercial LAN Turtle but seeking a more affordable solution, I created this device to enable remote network access without complex port forwarding or traditional VPN setups. This project served as both a practical solution and a valuable learning experience in hardware integration and network security.
 ⚠️ WARNING ⚠️ This project uses free third-party services!]]></description>
 </item>

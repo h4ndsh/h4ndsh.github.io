@@ -1,87 +1,87 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Tags - Tag - H4ndSH</title>
-        <link>http://localhost:1313/tags/</link>
+        <link>https://h4ndsh.github.io/tags/</link>
         <description>Tags - Tag - H4ndSH</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>h4ndsh@outlook.com (h4ndsh)</managingEditor>
-            <webMaster>h4ndsh@outlook.com (h4ndsh)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 04 Feb 2025 10:46:05 &#43;0100</lastBuildDate><atom:link href="http://localhost:1313/tags/" rel="self" type="application/rss+xml" /><item>
-    <title>Hardware</title>
-    <link>http://localhost:1313/tags/hardware/</link>
-    <pubDate>Tue, 04 Feb 2025 10:46:05 &#43;0100</pubDate>
+            <webMaster>h4ndsh@outlook.com (h4ndsh)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 01 Sep 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://h4ndsh.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>AI</title>
+    <link>https://h4ndsh.github.io/tags/ai/</link>
+    <pubDate>Mon, 01 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>h4ndsh</author>
-    <guid>http://localhost:1313/tags/hardware/</guid>
+    <guid>https://h4ndsh.github.io/tags/ai/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>GPU</title>
+    <link>https://h4ndsh.github.io/tags/gpu/</link>
+    <pubDate>Mon, 01 Sep 2025 00:00:00 &#43;0000</pubDate>
+    <author>h4ndsh</author>
+    <guid>https://h4ndsh.github.io/tags/gpu/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Hardware</title>
+    <link>https://h4ndsh.github.io/tags/hardware/</link>
+    <pubDate>Mon, 01 Sep 2025 00:00:00 &#43;0000</pubDate>
+    <author>h4ndsh</author>
+    <guid>https://h4ndsh.github.io/tags/hardware/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>LLM</title>
+    <link>https://h4ndsh.github.io/tags/llm/</link>
+    <pubDate>Mon, 01 Sep 2025 00:00:00 &#43;0000</pubDate>
+    <author>h4ndsh</author>
+    <guid>https://h4ndsh.github.io/tags/llm/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>MCP</title>
+    <link>https://h4ndsh.github.io/tags/mcp/</link>
+    <pubDate>Mon, 01 Sep 2025 00:00:00 &#43;0000</pubDate>
+    <author>h4ndsh</author>
+    <guid>https://h4ndsh.github.io/tags/mcp/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>NVIDIA</title>
+    <link>https://h4ndsh.github.io/tags/nvidia/</link>
+    <pubDate>Mon, 01 Sep 2025 00:00:00 &#43;0000</pubDate>
+    <author>h4ndsh</author>
+    <guid>https://h4ndsh.github.io/tags/nvidia/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Remote Access</title>
-    <link>http://localhost:1313/tags/remote-access/</link>
+    <link>https://h4ndsh.github.io/tags/remote-access/</link>
     <pubDate>Tue, 04 Feb 2025 10:46:05 &#43;0100</pubDate>
     <author>h4ndsh</author>
-    <guid>http://localhost:1313/tags/remote-access/</guid>
+    <guid>https://h4ndsh.github.io/tags/remote-access/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Security</title>
-    <link>http://localhost:1313/tags/security/</link>
+    <link>https://h4ndsh.github.io/tags/security/</link>
     <pubDate>Tue, 04 Feb 2025 10:46:05 &#43;0100</pubDate>
     <author>h4ndsh</author>
-    <guid>http://localhost:1313/tags/security/</guid>
+    <guid>https://h4ndsh.github.io/tags/security/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>ESP32-WROOM</title>
-    <link>http://localhost:1313/tags/esp32-wroom/</link>
+    <link>https://h4ndsh.github.io/tags/esp32-wroom/</link>
     <pubDate>Sat, 21 Oct 2023 00:00:00 &#43;0000</pubDate>
     <author>h4ndsh</author>
-    <guid>http://localhost:1313/tags/esp32-wroom/</guid>
+    <guid>https://h4ndsh.github.io/tags/esp32-wroom/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>FlipperZero</title>
-    <link>http://localhost:1313/tags/flipperzero/</link>
+    <link>https://h4ndsh.github.io/tags/flipperzero/</link>
     <pubDate>Sat, 21 Oct 2023 00:00:00 &#43;0000</pubDate>
     <author>h4ndsh</author>
-    <guid>http://localhost:1313/tags/flipperzero/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Hands-On</title>
-    <link>http://localhost:1313/tags/hands-on/</link>
-    <pubDate>Sat, 21 Oct 2023 00:00:00 &#43;0000</pubDate>
-    <author>h4ndsh</author>
-    <guid>http://localhost:1313/tags/hands-on/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>NRF24L01</title>
-    <link>http://localhost:1313/tags/nrf24l01/</link>
-    <pubDate>Sat, 21 Oct 2023 00:00:00 &#43;0000</pubDate>
-    <author>h4ndsh</author>
-    <guid>http://localhost:1313/tags/nrf24l01/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Php7</title>
-    <link>http://localhost:1313/tags/php7/</link>
-    <pubDate>Thu, 12 Oct 2023 00:00:00 &#43;0000</pubDate>
-    <author>h4ndsh</author>
-    <guid>http://localhost:1313/tags/php7/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Phpinfo</title>
-    <link>http://localhost:1313/tags/phpinfo/</link>
-    <pubDate>Thu, 12 Oct 2023 00:00:00 &#43;0000</pubDate>
-    <author>h4ndsh</author>
-    <guid>http://localhost:1313/tags/phpinfo/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Ethical Hacking</title>
-    <link>http://localhost:1313/tags/ethical-hacking/</link>
-    <pubDate>Thu, 29 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>h4ndsh</author>
-    <guid>http://localhost:1313/tags/ethical-hacking/</guid>
+    <guid>https://h4ndsh.github.io/tags/flipperzero/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

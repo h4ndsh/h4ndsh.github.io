@@ -1,71 +1,87 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Categories - Category - H4ndSH</title>
-        <link>http://localhost:1313/categories/</link>
+        <link>https://h4ndsh.github.io/categories/</link>
         <description>Categories - Category - H4ndSH</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>h4ndsh@outlook.com (h4ndsh)</managingEditor>
-            <webMaster>h4ndsh@outlook.com (h4ndsh)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 04 Feb 2025 10:46:05 &#43;0100</lastBuildDate><atom:link href="http://localhost:1313/categories/" rel="self" type="application/rss+xml" /><item>
-    <title>Pentest</title>
-    <link>http://localhost:1313/categories/pentest/</link>
-    <pubDate>Tue, 04 Feb 2025 10:46:05 &#43;0100</pubDate>
+            <webMaster>h4ndsh@outlook.com (h4ndsh)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 01 Sep 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://h4ndsh.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>AI</title>
+    <link>https://h4ndsh.github.io/categories/ai/</link>
+    <pubDate>Mon, 01 Sep 2025 00:00:00 &#43;0000</pubDate>
     <author>h4ndsh</author>
-    <guid>http://localhost:1313/categories/pentest/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Remote Access</title>
-    <link>http://localhost:1313/categories/remote-access/</link>
-    <pubDate>Tue, 04 Feb 2025 10:46:05 &#43;0100</pubDate>
-    <author>h4ndsh</author>
-    <guid>http://localhost:1313/categories/remote-access/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Flipper Zero</title>
-    <link>http://localhost:1313/categories/flipper-zero/</link>
-    <pubDate>Sat, 21 Oct 2023 00:00:00 &#43;0000</pubDate>
-    <author>h4ndsh</author>
-    <guid>http://localhost:1313/categories/flipper-zero/</guid>
+    <guid>https://h4ndsh.github.io/categories/ai/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Hardware</title>
-    <link>http://localhost:1313/categories/hardware/</link>
+    <link>https://h4ndsh.github.io/categories/hardware/</link>
+    <pubDate>Mon, 01 Sep 2025 00:00:00 &#43;0000</pubDate>
+    <author>h4ndsh</author>
+    <guid>https://h4ndsh.github.io/categories/hardware/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>MCP</title>
+    <link>https://h4ndsh.github.io/categories/mcp/</link>
+    <pubDate>Mon, 01 Sep 2025 00:00:00 &#43;0000</pubDate>
+    <author>h4ndsh</author>
+    <guid>https://h4ndsh.github.io/categories/mcp/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Pentest</title>
+    <link>https://h4ndsh.github.io/categories/pentest/</link>
+    <pubDate>Tue, 04 Feb 2025 10:46:05 &#43;0100</pubDate>
+    <author>h4ndsh</author>
+    <guid>https://h4ndsh.github.io/categories/pentest/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Remote Access</title>
+    <link>https://h4ndsh.github.io/categories/remote-access/</link>
+    <pubDate>Tue, 04 Feb 2025 10:46:05 &#43;0100</pubDate>
+    <author>h4ndsh</author>
+    <guid>https://h4ndsh.github.io/categories/remote-access/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Flipper Zero</title>
+    <link>https://h4ndsh.github.io/categories/flipper-zero/</link>
     <pubDate>Sat, 21 Oct 2023 00:00:00 &#43;0000</pubDate>
     <author>h4ndsh</author>
-    <guid>http://localhost:1313/categories/hardware/</guid>
+    <guid>https://h4ndsh.github.io/categories/flipper-zero/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Security</title>
-    <link>http://localhost:1313/categories/security/</link>
+    <link>https://h4ndsh.github.io/categories/security/</link>
     <pubDate>Sat, 21 Oct 2023 00:00:00 &#43;0000</pubDate>
     <author>h4ndsh</author>
-    <guid>http://localhost:1313/categories/security/</guid>
+    <guid>https://h4ndsh.github.io/categories/security/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Learning</title>
-    <link>http://localhost:1313/categories/learning/</link>
+    <link>https://h4ndsh.github.io/categories/learning/</link>
     <pubDate>Thu, 12 Oct 2023 00:00:00 &#43;0000</pubDate>
     <author>h4ndsh</author>
-    <guid>http://localhost:1313/categories/learning/</guid>
+    <guid>https://h4ndsh.github.io/categories/learning/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>PoC</title>
-    <link>http://localhost:1313/categories/poc/</link>
+    <link>https://h4ndsh.github.io/categories/poc/</link>
     <pubDate>Thu, 12 Oct 2023 00:00:00 &#43;0000</pubDate>
     <author>h4ndsh</author>
-    <guid>http://localhost:1313/categories/poc/</guid>
+    <guid>https://h4ndsh.github.io/categories/poc/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Phishing</title>
-    <link>http://localhost:1313/categories/phishing/</link>
+    <link>https://h4ndsh.github.io/categories/phishing/</link>
     <pubDate>Thu, 29 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>h4ndsh</author>
-    <guid>http://localhost:1313/categories/phishing/</guid>
+    <guid>https://h4ndsh.github.io/categories/phishing/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

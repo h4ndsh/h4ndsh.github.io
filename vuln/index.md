@@ -118,7 +118,7 @@
         </tr>
         <tr>
           <td><a href="https://www.airc.pt" target="_blank">AIRC</a></td>
-          <td>DOM-based Injection</td>
+          <td>Clickjacking</td>
           <td>2024</td>
           <td class="high">high</td>
         </tr>
