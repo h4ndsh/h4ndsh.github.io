@@ -4,31 +4,7 @@
         <link>https://h4ndsh.github.io/categories/</link>
         <description>Categories - Category - H4ndSH</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>h4ndsh@outlook.com (h4ndsh)</managingEditor>
-            <webMaster>h4ndsh@outlook.com (h4ndsh)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 01 Sep 2025 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://h4ndsh.github.io/categories/" rel="self" type="application/rss+xml" /><item>
-    <title>AI</title>
-    <link>https://h4ndsh.github.io/categories/ai/</link>
-    <pubDate>Mon, 01 Sep 2025 00:00:00 &#43;0000</pubDate>
-    <author>h4ndsh</author>
-    <guid>https://h4ndsh.github.io/categories/ai/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Hardware</title>
-    <link>https://h4ndsh.github.io/categories/hardware/</link>
-    <pubDate>Mon, 01 Sep 2025 00:00:00 &#43;0000</pubDate>
-    <author>h4ndsh</author>
-    <guid>https://h4ndsh.github.io/categories/hardware/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>MCP</title>
-    <link>https://h4ndsh.github.io/categories/mcp/</link>
-    <pubDate>Mon, 01 Sep 2025 00:00:00 &#43;0000</pubDate>
-    <author>h4ndsh</author>
-    <guid>https://h4ndsh.github.io/categories/mcp/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
+            <webMaster>h4ndsh@outlook.com (h4ndsh)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 04 Feb 2025 10:46:05 &#43;0100</lastBuildDate><atom:link href="https://h4ndsh.github.io/categories/" rel="self" type="application/rss+xml" /><item>
     <title>Pentest</title>
     <link>https://h4ndsh.github.io/categories/pentest/</link>
     <pubDate>Tue, 04 Feb 2025 10:46:05 &#43;0100</pubDate>
@@ -50,6 +26,14 @@
     <pubDate>Sat, 21 Oct 2023 00:00:00 &#43;0000</pubDate>
     <author>h4ndsh</author>
     <guid>https://h4ndsh.github.io/categories/flipper-zero/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Hardware</title>
+    <link>https://h4ndsh.github.io/categories/hardware/</link>
+    <pubDate>Sat, 21 Oct 2023 00:00:00 &#43;0000</pubDate>
+    <author>h4ndsh</author>
+    <guid>https://h4ndsh.github.io/categories/hardware/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
