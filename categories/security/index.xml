@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Security - Category - H4ndSH</title>
+        <title>Security - Category - h4ndsh</title>
         <link>https://h4ndsh.github.io/categories/security/</link>
-        <description>Security - Category - H4ndSH</description>
+        <description>Security - Category - h4ndsh</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>h4ndsh@outlook.com (h4ndsh)</managingEditor>
             <webMaster>h4ndsh@outlook.com (h4ndsh)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 21 Oct 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://h4ndsh.github.io/categories/security/" rel="self" type="application/rss+xml" /><item>
     <title>Exploring the Versatile Flipper Zero: First Impressions and Hands-On</title>

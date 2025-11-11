@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Phpinfo - Tag - H4ndSH</title>
+        <title>Phpinfo - Tag - h4ndsh</title>
         <link>https://h4ndsh.github.io/tags/phpinfo/</link>
-        <description>Phpinfo - Tag - H4ndSH</description>
+        <description>Phpinfo - Tag - h4ndsh</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>h4ndsh@outlook.com (h4ndsh)</managingEditor>
             <webMaster>h4ndsh@outlook.com (h4ndsh)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 12 Oct 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://h4ndsh.github.io/tags/phpinfo/" rel="self" type="application/rss+xml" /><item>
     <title>PHP &lt;= 7.3 Local File Inclusion with RCE (PoC)</title>
