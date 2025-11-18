@@ -86,6 +86,12 @@
         </tr>
       </thead>
       <tbody>
+      <tr>
+          <td><a href="https://wiremaze.com" target="_blank">wiremaze</a></td>
+          <td>Chat Bot - Prompt Injection</td>
+          <td>2025</td>
+          <td class="critical">HIGH</td>
+        </tr>
         <tr>
           <td><a href="https://www.logicpulse.com" target="_blank">Logicpulse</a></td>
           <td>LFI</td>
